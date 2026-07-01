@@ -15,7 +15,7 @@ const C = {
   teal:      '#00C2A8',
   tealDark:  '#005677',
   text:      '#2C1F0E',
-  muted:     '#7A6A55',
+  muted:     '#4A3828',
   border:    '#E2D8CC',
 };
 
