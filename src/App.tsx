@@ -1,122 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { InstituteAuthProvider } from '@/context/InstituteAuthContext';
+import InstituteLayout from '@/components/InstituteLayout';
+import InstituteHomePage from '@/pages/institute/InstituteHomePage';
+import InstituteCoursesPage from '@/pages/institute/InstituteCoursesPage';
+import InstituteCourseDetailPage from '@/pages/institute/InstituteCourseDetailPage';
+import InstituteModuleViewerPage from '@/pages/institute/InstituteModuleViewerPage';
+import InstituteExamPage from '@/pages/institute/InstituteExamPage';
+import InstituteCertificatePage from '@/pages/institute/InstituteCertificatePage';
+import InstituteSignUpPage from '@/pages/institute/InstituteSignUpPage';
+import InstituteLoginPage from '@/pages/institute/InstituteLoginPage';
+import InstituteMemberDashboardPage from '@/pages/institute/InstituteMemberDashboardPage';
+import InstituteAboutPage from '@/pages/institute/InstituteAboutPage';
+import InstituteEventsPage from '@/pages/institute/InstituteEventsPage';
+import InstituteForumsPage from '@/pages/institute/InstituteForumsPage';
+import InstituteMembershipPage from '@/pages/institute/InstituteMembershipPage';
+import InstituteCTSPage from '@/pages/institute/InstituteCTSPage';
+import InstituteStandardsPage from '@/pages/institute/InstituteStandardsPage';
+import InstituteDownloadsPage from '@/pages/institute/InstituteDownloadsPage';
+import InstitutePublicationsPage from '@/pages/institute/InstitutePublicationsPage';
+import InstitutePulsePage from '@/pages/institute/InstitutePulsePage';
+import InstituteRoundtablesPage from '@/pages/institute/InstituteRoundtablesPage';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <BrowserRouter>
+      <InstituteAuthProvider>
+        <Routes>
+          <Route path="/" element={<Navigate to="/institute" replace />} />
+          <Route path="/institute" element={<InstituteLayout />}>
+            <Route index element={<InstituteHomePage />} />
+            <Route path="courses" element={<InstituteCoursesPage />} />
+            <Route path="courses/:courseId" element={<InstituteCourseDetailPage />} />
+            <Route path="courses/:courseId/modules/:moduleId" element={<InstituteModuleViewerPage />} />
+            <Route path="courses/:courseId/exam" element={<InstituteExamPage />} />
+            <Route path="certificate/:type" element={<InstituteCertificatePage />} />
+            <Route path="signup" element={<InstituteSignUpPage />} />
+            <Route path="login" element={<InstituteLoginPage />} />
+            <Route path="dashboard" element={<InstituteMemberDashboardPage />} />
+            <Route path="about" element={<InstituteAboutPage />} />
+            <Route path="events" element={<InstituteEventsPage />} />
+            <Route path="forums" element={<InstituteForumsPage />} />
+            <Route path="membership" element={<InstituteMembershipPage />} />
+            <Route path="cts" element={<InstituteCTSPage />} />
+            <Route path="standards" element={<InstituteStandardsPage />} />
+            <Route path="downloads" element={<InstituteDownloadsPage />} />
+            <Route path="publications" element={<InstitutePublicationsPage />} />
+            <Route path="pulse" element={<InstitutePulsePage />} />
+            <Route path="roundtables" element={<InstituteRoundtablesPage />} />
+          </Route>
+        </Routes>
+      </InstituteAuthProvider>
+    </BrowserRouter>
+  );
 }
-
-export default App
