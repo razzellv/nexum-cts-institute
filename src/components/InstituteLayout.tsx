@@ -214,9 +214,9 @@ export default function InstituteLayout() {
                   style={{ background: C.beige, border: `1px solid ${C.border}`, color: C.text }}
                 >
                   <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-[#2C1F0E]" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
-                    {profile?.display_name?.[0] ?? 'U'}
+                    {profile?.displayName?.[0] ?? 'U'}
                   </div>
-                  <span>{profile?.display_name.split(' ')[0] ?? 'Dashboard'}</span>
+                  <span>{profile?.displayName.split(' ')[0] ?? 'Dashboard'}</span>
                   <ChevronDown className="h-3 w-3 opacity-50" />
                 </button>
                 <button onClick={() => signOut()} className="p-2 rounded-lg hover:opacity-70 transition-colors" style={{ color: C.muted }} title="Sign out">

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { BookOpen, Mail, Lock, User, Building2, Briefcase, AlertCircle, Eye, EyeOff, Check } from 'lucide-react';
+import { BookOpen, Mail, Lock, User, Building2, Briefcase, AlertCircle, Eye, EyeOff, Check, KeyRound } from 'lucide-react';
 import { useInstituteAuth, type InstituteTier } from '@/context/InstituteAuthContext';
 import { Button, Badge } from '@/components/InstituteUI';
 import { STRIPE_PRICES, createCheckoutSession } from '@/lib/stripe';
@@ -93,13 +93,13 @@ const TIERS: TierOption[] = [
 ];
 
 export default function InstituteSignUpPage() {
-  const { signUp } = useInstituteAuth();
+  const { signUp, confirmCode } = useInstituteAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   const preselected = (searchParams.get('tier') as InstituteTier) ?? 'explorer';
 
-  const [step, setStep] = useState<'tier' | 'details'>('tier');
+  const [step, setStep] = useState<'tier' | 'details' | 'confirm'>('tier');
   const [selectedTier, setSelectedTier] = useState<InstituteTier>(preselected);
 
   const [displayName, setDisplayName] = useState('');
@@ -109,6 +109,7 @@ export default function InstituteSignUpPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPass, setShowPass] = useState(false);
+  const [confirmationCode, setConfirmationCode] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -138,7 +139,7 @@ export default function InstituteSignUpPage() {
 
     setSubmitting(true);
 
-    const { error: err } = await signUp(email.trim(), password, {
+    const { error: err, nextStep } = await signUp(email.trim(), password, {
       display_name: displayName.trim(),
       organization: organization.trim(),
       job_title: jobTitle.trim(),
@@ -151,6 +152,13 @@ export default function InstituteSignUpPage() {
       return;
     }
 
+    // Cognito requires email confirmation
+    if (nextStep === 'CONFIRM_SIGN_UP') {
+      setSubmitting(false);
+      setStep('confirm');
+      return;
+    }
+
     // Paid tiers: create Stripe checkout session via Lambda
     if (tier.stripePriceId) {
       const { url, error: checkoutErr } = await createCheckoutSession({
@@ -160,7 +168,6 @@ export default function InstituteSignUpPage() {
       });
       setSubmitting(false);
       if (checkoutErr || !url) {
-        // Account created but payment redirect failed — send to dashboard with notice
         navigate('/institute/dashboard?payment=pending');
         return;
       }
@@ -170,6 +177,81 @@ export default function InstituteSignUpPage() {
 
     setSubmitting(false);
     navigate('/institute/dashboard');
+  }
+
+  async function handleConfirm(e: FormEvent) {
+    e.preventDefault();
+    setError(null);
+    setSubmitting(true);
+
+    const { error: err } = await confirmCode(email.trim(), confirmationCode.trim());
+    if (err) {
+      setSubmitting(false);
+      setError(err);
+      return;
+    }
+
+    // After confirmation, proceed to payment or dashboard
+    if (tier.stripePriceId) {
+      const { url, error: checkoutErr } = await createCheckoutSession({
+        priceId: tier.stripePriceId,
+        customerEmail: email.trim(),
+        memberId: email.trim(),
+      });
+      setSubmitting(false);
+      if (checkoutErr || !url) {
+        navigate('/institute/dashboard?payment=pending');
+        return;
+      }
+      window.location.href = url;
+      return;
+    }
+
+    setSubmitting(false);
+    navigate('/institute/dashboard');
+  }
+
+  if (step === 'confirm') {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
+        <div className="w-full max-w-md">
+          <div className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-2xl p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-[#00C2A8]/10 border border-[#00C2A8]/20 flex items-center justify-center">
+                <KeyRound size={18} className="text-[#00C2A8]" />
+              </div>
+              <div>
+                <h1 className="text-lg font-bold text-[#2C1F0E]">Confirm your email</h1>
+                <p className="text-sm text-[#6E5E34]">Check <strong>{email}</strong> for a 6-digit code</p>
+              </div>
+            </div>
+
+            {error && (
+              <div className="flex items-start gap-2.5 bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-5">
+                <AlertCircle className="h-4 w-4 text-red-400 mt-0.5 shrink-0" />
+                <p className="text-sm text-red-300">{error}</p>
+              </div>
+            )}
+
+            <form onSubmit={handleConfirm} className="space-y-4">
+              <Field label="Confirmation code" icon={<KeyRound size={15} className="text-[#7A6A55]" />}>
+                <input
+                  required
+                  value={confirmationCode}
+                  onChange={e => setConfirmationCode(e.target.value)}
+                  placeholder="123456"
+                  maxLength={6}
+                  className={inputClass}
+                />
+              </Field>
+              <Button type="submit" variant="primary" size="md" disabled={submitting} className="w-full">
+                {submitting ? 'Verifying…' : 'Verify & Continue'}
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (step === 'tier') {

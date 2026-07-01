@@ -7,9 +7,6 @@ export const STRIPE_PRICES = {
 
 export type StripePriceKey = keyof typeof STRIPE_PRICES;
 
-// Lambda endpoint — set VITE_CHECKOUT_API_URL in Netlify env vars once Lambda is deployed
-const CHECKOUT_API = import.meta.env.VITE_CHECKOUT_API_URL as string | undefined;
-
 export interface CheckoutParams {
   priceId: string;
   customerEmail: string;
@@ -24,31 +21,12 @@ export interface CheckoutResult {
 }
 
 export async function createCheckoutSession(params: CheckoutParams): Promise<CheckoutResult> {
-  if (!CHECKOUT_API) {
-    return { url: null, error: 'Payment processing endpoint not configured.' };
-  }
-
   try {
-    const res = await fetch(`${CHECKOUT_API}/checkout/session`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        priceId: params.priceId,
-        customerEmail: params.customerEmail,
-        memberId: params.memberId,
-        successUrl: params.successUrl ?? `${window.location.origin}/institute/dashboard?payment=success`,
-        cancelUrl:  params.cancelUrl  ?? `${window.location.origin}/institute/signup`,
-      }),
-    });
-
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}));
-      return { url: null, error: (body as { message?: string }).message ?? 'Checkout session failed.' };
-    }
-
-    const data = await res.json() as { url: string };
-    return { url: data.url, error: null };
-  } catch {
-    return { url: null, error: 'Unable to reach payment service. Please try again.' };
+    // Import here to avoid circular deps
+    const { instituteApi } = await import('@/lib/instituteApi');
+    const result = await instituteApi.createCheckoutSession(params);
+    return { url: result.url, error: null };
+  } catch (err) {
+    return { url: null, error: (err as Error).message ?? 'Checkout session failed.' };
   }
 }

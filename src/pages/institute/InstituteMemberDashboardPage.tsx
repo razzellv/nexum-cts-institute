@@ -125,7 +125,7 @@ export default function InstituteMemberDashboardPage() {
             Member Dashboard
           </p>
           <h1 className="text-2xl font-bold text-[#2C1F0E]">
-            Welcome back, {profile.display_name.split(' ')[0]}
+            Welcome back, {profile.displayName.split(' ')[0]}
           </h1>
           <p className="text-[#6E5E34] text-sm mt-0.5">{user?.email}</p>
         </div>
@@ -143,11 +143,11 @@ export default function InstituteMemberDashboardPage() {
         <div className="flex flex-col sm:flex-row sm:items-center gap-5">
           <div className="w-14 h-14 rounded-2xl bg-[#00FFE1]/10 border border-[#00FFE1]/20 flex items-center justify-center shrink-0">
             <span className="text-[#00FFE1] font-bold text-xl">
-              {profile.display_name.charAt(0).toUpperCase()}
+              {profile.displayName.charAt(0).toUpperCase()}
             </span>
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-bold text-[#2C1F0E] text-lg">{profile.display_name}</p>
+            <p className="font-bold text-[#2C1F0E] text-lg">{profile.displayName}</p>
             <div className="flex flex-wrap items-center gap-3 mt-1.5">
               {profile.organization && (
                 <span className="flex items-center gap-1.5 text-sm text-[#4A3828]">
@@ -155,23 +155,23 @@ export default function InstituteMemberDashboardPage() {
                   {profile.organization}
                 </span>
               )}
-              {profile.job_title && (
+              {profile.jobTitle && (
                 <span className="flex items-center gap-1.5 text-sm text-[#4A3828]">
                   <Briefcase size={13} />
-                  {profile.job_title}
+                  {profile.jobTitle}
                 </span>
               )}
               <span className="flex items-center gap-1.5 text-sm text-[#4A3828]">
                 <Clock size={13} />
-                Member since {formatDate(profile.created_at)}
+                Member since {formatDate(profile.createdAt)}
               </span>
             </div>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <Badge
-              variant={profile.subscription_status === 'active' ? 'green' : 'orange'}
+              variant={profile.subscriptionStatus === 'active' ? 'green' : 'orange'}
             >
-              {profile.subscription_status}
+              {profile.subscriptionStatus}
             </Badge>
           </div>
         </div>

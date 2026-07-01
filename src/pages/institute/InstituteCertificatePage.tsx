@@ -33,7 +33,7 @@ export default function InstituteCertificatePage() {
     description: '',
   };
 
-  const holderName = profile?.display_name ?? 'Certificate Holder';
+  const holderName = profile?.displayName ?? 'Certificate Holder';
   const issuedDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (

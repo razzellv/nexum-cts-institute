@@ -1,25 +1,17 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
+import {
+  signUp as amplifySignUp,
+  signIn as amplifySignIn,
+  signOut as amplifySignOut,
+  getCurrentUser,
+  fetchAuthSession,
+  confirmSignUp,
+} from 'aws-amplify/auth';
+import { instituteApi } from '@/lib/instituteApi';
+import type { MemberProfile, InstituteTier } from '@/lib/instituteApi';
 
-export type InstituteTier =
-  | 'explorer'
-  | 'professional'
-  | 'practitioner'
-  | 'enterprise'
-  | 'founding';
-
-export interface InstituteProfile {
-  id: string;
-  display_name: string;
-  organization: string;
-  job_title: string;
-  tier: InstituteTier;
-  stripe_customer_id: string;
-  stripe_subscription_id: string;
-  subscription_status: string;
-  created_at: string;
-  last_active: string;
-}
+export type { InstituteTier, MemberProfile as InstituteProfile };
 
 interface SignUpMeta {
   display_name: string;
@@ -30,93 +22,172 @@ interface SignUpMeta {
 
 interface InstituteAuthState {
   user: { id: string; email: string } | null;
-  session: null;
-  profile: InstituteProfile | null;
+  session: { token: string } | null;
+  profile: MemberProfile | null;
   loading: boolean;
-  signUp: (email: string, password: string, meta: SignUpMeta) => Promise<{ error: string | null }>;
+  signUp: (email: string, password: string, meta: SignUpMeta) => Promise<{ error: string | null; nextStep?: string }>;
+  confirmCode: (email: string, code: string) => Promise<{ error: string | null }>;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
-  updateProfile: (updates: Partial<InstituteProfile>) => Promise<{ error: string | null }>;
+  updateProfile: (updates: Partial<MemberProfile>) => Promise<{ error: string | null }>;
   refreshProfile: () => Promise<void>;
 }
-
-const ADMIN_EMAILS = ['razzellv@nexumsuum.com', 'razzionlife@gmail.com'];
-
-const ADMIN_PROFILE: Omit<InstituteProfile, 'id' | 'display_name'> = {
-  organization: 'Nexum Suum Inc.',
-  job_title: 'Founder',
-  tier: 'founding',
-  stripe_customer_id: '',
-  stripe_subscription_id: '',
-  subscription_status: 'active',
-  created_at: '2024-01-01T00:00:00.000Z',
-  last_active: new Date().toISOString(),
-};
 
 const InstituteAuthContext = createContext<InstituteAuthState | null>(null);
 
 export function InstituteAuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<{ id: string; email: string } | null>(null);
-  const [profile, setProfile] = useState<InstituteProfile | null>(null);
+  const [session, setSession] = useState<{ token: string } | null>(null);
+  const [profile, setProfile] = useState<MemberProfile | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  // Restore session on mount
+  useEffect(() => {
+    async function restore() {
+      try {
+        const cognitoUser = await getCurrentUser();
+        const sess = await fetchAuthSession();
+        const token = sess.tokens?.idToken?.toString() ?? null;
+        const email = cognitoUser.signInDetails?.loginId ?? '';
+        setUser({ id: cognitoUser.userId, email });
+        if (token) setSession({ token });
+        await loadProfile(cognitoUser.userId);
+      } catch {
+        // Not signed in
+      } finally {
+        setLoading(false);
+      }
+    }
+    restore();
+  }, []);
+
+  async function loadProfile(userId: string) {
+    try {
+      const p = await instituteApi.getProfile(userId);
+      setProfile(p);
+    } catch {
+      // Profile may not exist yet (new signup)
+    }
+  }
 
   async function signUp(
     email: string,
-    _password: string,
+    password: string,
     meta: SignUpMeta,
+  ): Promise<{ error: string | null; nextStep?: string }> {
+    try {
+      const result = await amplifySignUp({
+        username: email,
+        password,
+        options: {
+          userAttributes: {
+            email,
+            name: meta.display_name,
+          },
+        },
+      });
+
+      // If confirmation is needed, return the next step
+      if (result.nextStep.signUpStep !== 'DONE') {
+        return { error: null, nextStep: result.nextStep.signUpStep };
+      }
+
+      // Auto sign in after signup if no confirmation needed
+      await amplifySignIn({ username: email, password });
+      const cognitoUser = await getCurrentUser();
+      const sess = await fetchAuthSession();
+      const token = sess.tokens?.idToken?.toString() ?? null;
+      setUser({ id: cognitoUser.userId, email });
+      if (token) setSession({ token });
+
+      // Create profile in DynamoDB
+      const p = await instituteApi.createProfile({
+        email,
+        displayName: meta.display_name,
+        organization: meta.organization,
+        jobTitle: meta.job_title,
+        tier: meta.tier ?? 'explorer',
+      });
+      setProfile(p);
+
+      return { error: null };
+    } catch (err) {
+      return { error: (err as Error).message };
+    }
+  }
+
+  async function confirmCode(
+    email: string,
+    code: string,
   ): Promise<{ error: string | null }> {
-    const newUser = { id: crypto.randomUUID(), email };
-    const isAdmin = ADMIN_EMAILS.includes(email.toLowerCase().trim());
-    const newProfile: InstituteProfile = isAdmin
-      ? { id: newUser.id, display_name: meta.display_name || 'Admin', ...ADMIN_PROFILE }
-      : {
-          id: newUser.id,
-          display_name: meta.display_name,
-          organization: meta.organization ?? '',
-          job_title: meta.job_title ?? '',
-          tier: meta.tier ?? 'explorer',
-          stripe_customer_id: '',
-          stripe_subscription_id: '',
-          subscription_status: 'inactive',
-          created_at: new Date().toISOString(),
-          last_active: new Date().toISOString(),
-        };
-    setUser(newUser);
-    setProfile(newProfile);
-    return { error: null };
+    try {
+      await confirmSignUp({ username: email, confirmationCode: code });
+      return { error: null };
+    } catch (err) {
+      return { error: (err as Error).message };
+    }
   }
 
   async function signIn(
     email: string,
-    _password: string,
+    password: string,
   ): Promise<{ error: string | null }> {
-    const id = crypto.randomUUID();
-    const isAdmin = ADMIN_EMAILS.includes(email.toLowerCase().trim());
-    setUser({ id, email });
-    if (isAdmin) {
-      setProfile({ id, display_name: 'Admin', ...ADMIN_PROFILE });
+    try {
+      await amplifySignIn({ username: email, password });
+      const cognitoUser = await getCurrentUser();
+      const sess = await fetchAuthSession();
+      const token = sess.tokens?.idToken?.toString() ?? null;
+      setUser({ id: cognitoUser.userId, email });
+      if (token) setSession({ token });
+      await loadProfile(cognitoUser.userId);
+      return { error: null };
+    } catch (err) {
+      return { error: (err as Error).message };
     }
-    return { error: null };
   }
 
   async function signOut() {
+    try {
+      await amplifySignOut();
+    } catch {
+      // ignore
+    }
     setUser(null);
+    setSession(null);
     setProfile(null);
   }
 
   async function updateProfile(
-    updates: Partial<InstituteProfile>,
+    updates: Partial<MemberProfile>,
   ): Promise<{ error: string | null }> {
-    if (profile) setProfile({ ...profile, ...updates });
-    return { error: null };
+    if (!user) return { error: 'Not signed in' };
+    try {
+      const updated = await instituteApi.updateProfile(user.id, updates);
+      setProfile(updated);
+      return { error: null };
+    } catch (err) {
+      return { error: (err as Error).message };
+    }
   }
 
   async function refreshProfile() {
-    // no-op in stub
+    if (user) await loadProfile(user.id);
   }
 
   return (
     <InstituteAuthContext.Provider
-      value={{ user, session: null, profile, loading: false, signUp, signIn, signOut, updateProfile, refreshProfile }}
+      value={{
+        user,
+        session,
+        profile,
+        loading,
+        signUp,
+        confirmCode,
+        signIn,
+        signOut,
+        updateProfile,
+        refreshProfile,
+      }}
     >
       {children}
     </InstituteAuthContext.Provider>
