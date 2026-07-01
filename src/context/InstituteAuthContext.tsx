@@ -49,11 +49,12 @@ export function InstituteAuthProvider({ children }: { children: ReactNode }) {
         const sess = await fetchAuthSession();
         const token = sess.tokens?.idToken?.toString() ?? null;
         const email = cognitoUser.signInDetails?.loginId ?? '';
-        setUser({ id: cognitoUser.userId, email });
+        const uid = cognitoUser.userId;
+        setUser({ id: uid, email });
         if (token) setSession({ token });
-        await loadProfile(cognitoUser.userId);
+        await loadProfile(uid, email);
       } catch {
-        // Not signed in
+        // Not signed in — clear state and finish loading
       } finally {
         setLoading(false);
       }
@@ -61,12 +62,28 @@ export function InstituteAuthProvider({ children }: { children: ReactNode }) {
     restore();
   }, []);
 
-  async function loadProfile(userId: string) {
+  async function loadProfile(userId: string, email?: string) {
     try {
       const p = await instituteApi.getProfile(userId);
       setProfile(p);
     } catch {
-      // Profile may not exist yet (new signup)
+      // API unavailable or profile not yet created — use a minimal local profile
+      // so the dashboard doesn't get stuck on the spinner
+      if (email) {
+        setProfile({
+          id: userId,
+          email,
+          displayName: email.split('@')[0],
+          organization: '',
+          jobTitle: '',
+          tier: 'explorer',
+          stripeCustomerId: '',
+          stripeSubscriptionId: '',
+          subscriptionStatus: 'inactive',
+          createdAt: new Date().toISOString(),
+          lastActive: new Date().toISOString(),
+        });
+      }
     }
   }
 
