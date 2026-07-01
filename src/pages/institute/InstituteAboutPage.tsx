@@ -26,10 +26,10 @@ export default function AboutPage() {
             We develop and publish the CTS™ governing standards, support a community of operational intelligence practitioners, and advance the body of knowledge around defensible, evidence-based decision-making in complex operational environments.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/membership">
+            <Link to="/institute/signup">
               <Button variant="primary" size="lg">Join the Institute</Button>
             </Link>
-            <Link to="/standards">
+            <Link to="/institute/standards">
               <Button variant="outline" size="lg">View Standards</Button>
             </Link>
           </div>

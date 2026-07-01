@@ -154,7 +154,7 @@ export default function RoundtablesPage() {
                     {rt.members} members
                   </div>
                   {rt.status === 'Open' ? (
-                    <Button size="sm" variant="outline">Request to Join</Button>
+                    <Link to="/institute/contact"><Button size="sm" variant="outline">Request to Join</Button></Link>
                   ) : (
                     <Button size="sm" variant="ghost">Learn More</Button>
                   )}
@@ -195,7 +195,7 @@ export default function RoundtablesPage() {
             Professional and higher membership tiers include the ability to create and manage private roundtables. Gather your team, your cohort, or your sector peers in a structured, knowledge-preserving environment.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/membership">
+            <Link to="/institute/membership">
               <Button size="lg">View Membership Plans <ArrowRight size={16} /></Button>
             </Link>
             <Button size="lg" variant="outline">Learn More</Button>

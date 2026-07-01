@@ -22,7 +22,7 @@ const tiers = [
     ],
     cta: 'Start Free',
     ctaStyle: 'border border-[#00C2A8]/40 text-[#00C2A8] hover:bg-[#00C2A8]/10',
-    ctaLink: '/institute/membership/explorer',
+    ctaLink: '/institute/signup?tier=explorer',
   },
   {
     id: 'professional',
@@ -43,7 +43,7 @@ const tiers = [
     ],
     cta: 'Join Professional',
     ctaStyle: 'bg-[#00C2A8] text-black font-bold hover:bg-[#00C2A8]/90',
-    ctaLink: '/institute/membership/professional',
+    ctaLink: '/institute/signup?tier=professional',
   },
   {
     id: 'practitioner',
@@ -65,7 +65,7 @@ const tiers = [
     ],
     cta: 'Join Practitioner',
     ctaStyle: 'border border-[#D4AF57]/50 text-[#D4AF57] hover:bg-[#D4AF57]/10',
-    ctaLink: '/institute/membership/practitioner',
+    ctaLink: '/institute/signup?tier=practitioner',
   },
   {
     id: 'enterprise',
@@ -108,7 +108,7 @@ const tiers = [
     ],
     cta: 'Claim Founding Member',
     ctaStyle: 'bg-[#D4AF57] text-black font-bold hover:bg-[#D4AF57]/90',
-    ctaLink: '/institute/membership/founding',
+    ctaLink: '/institute/signup?tier=founding',
   },
 ]
 
