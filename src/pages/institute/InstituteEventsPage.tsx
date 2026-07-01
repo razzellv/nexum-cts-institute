@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Calendar, Video, Users, BookOpen, ArrowRight, Bell } from 'lucide-react'
-import Button from '@/components/InstituteUI'
-import Badge from '@/components/InstituteUI'
+import { Button, Badge } from '@/components/InstituteUI'
 
 const eventTypes = [
   {

@@ -40,7 +40,7 @@ export default function InstituteExamPage() {
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [submitting, setSubmitting] = useState(false);
 
-  const userTier = profile?.tier as CourseAccessTier | undefined;
+  const userTier = profile?.tier;
   const canTakeExam = userTier === 'practitioner' || userTier === 'enterprise' || userTier === 'founding';
 
   const answered = Object.keys(answers).length;

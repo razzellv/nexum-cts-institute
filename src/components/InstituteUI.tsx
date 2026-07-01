@@ -3,7 +3,8 @@
  * Exports Button, Card, and Badge with the design API used across all institute pages
  */
 
-import { ReactNode, ButtonHTMLAttributes, forwardRef } from 'react';
+import { forwardRef } from 'react';
+import type { ReactNode, ButtonHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
 // ── Button ────────────────────────────────────────────────────────────────────
@@ -63,7 +64,7 @@ export function Card({ children, className, hover, gold }: CardProps) {
 
 interface BadgeProps {
   children: ReactNode;
-  variant?: 'teal' | 'gold' | 'gray' | 'green' | 'red' | 'blue' | 'orange';
+  variant?: 'teal' | 'gold' | 'gray' | 'green' | 'red' | 'blue' | 'orange' | 'purple';
   className?: string;
 }
 
@@ -78,6 +79,7 @@ export function Badge({ children, variant = 'gray', className }: BadgeProps) {
       variant === 'red'    && 'bg-red-500/10 text-red-400 border-red-500/20',
       variant === 'blue'   && 'bg-blue-500/10 text-blue-400 border-blue-500/20',
       variant === 'orange' && 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+      variant === 'purple' && 'bg-purple-500/10 text-purple-400 border-purple-500/20',
       className,
     )}>
       {children}

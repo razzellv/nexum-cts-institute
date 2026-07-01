@@ -1,6 +1,5 @@
 import { MessageSquare, Bookmark, Share2, ExternalLink } from 'lucide-react'
-import Badge from '@/components/InstituteUI'
-import { Button } from '@/components/InstituteUI'
+import { Button, Badge } from '@/components/InstituteUI'
 
 const posts = [
   {

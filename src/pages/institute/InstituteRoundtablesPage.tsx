@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Users, Lock, FileText, MessageSquare, Video, FolderOpen, ArrowRight, Plus } from 'lucide-react'
-import { Button } from '@/components/InstituteUI'
-import Badge from '@/components/InstituteUI'
+import { Button, Badge } from '@/components/InstituteUI'
 
 const roundtables = [
   {

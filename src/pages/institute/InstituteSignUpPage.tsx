@@ -1,4 +1,5 @@
-import { useState, FormEvent } from 'react';
+import { useState } from 'react';
+import type { FormEvent } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { BookOpen, Mail, Lock, User, Building2, Briefcase, AlertCircle, Eye, EyeOff, Check } from 'lucide-react';
 import { useInstituteAuth, type InstituteTier } from '@/context/InstituteAuthContext';

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Download, FileText, X, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/InstituteUI'
-import Badge from '@/components/InstituteUI'
+import { Button, Badge } from '@/components/InstituteUI'
 
 const downloads = [
   {
