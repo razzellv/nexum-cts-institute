@@ -12,5 +12,27 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Netlify Forms detection stubs (hidden, required for bot discovery) -->
+    <form name="contact" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="name" /><input name="email" /><input name="topic" /><textarea name="message"></textarea>
+    </form>
+    <form name="events-notify" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="events-notify" />
+      <input name="email" />
+    </form>
+    <form name="download-request" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="download-request" />
+      <input name="email" /><input name="download" />
+    </form>
+    <form name="pulse-subscribe" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="pulse-subscribe" />
+      <input name="email" />
+    </form>
+    <form name="journal-subscribe" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="journal-subscribe" />
+      <input name="email" />
+    </form>
   </body>
 </html>

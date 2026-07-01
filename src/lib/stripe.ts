@@ -22,7 +22,6 @@ export interface CheckoutResult {
 
 export async function createCheckoutSession(params: CheckoutParams): Promise<CheckoutResult> {
   try {
-    // Import here to avoid circular deps
     const { instituteApi } = await import('@/lib/instituteApi');
     const result = await instituteApi.createCheckoutSession(params);
     return { url: result.url, error: null };
