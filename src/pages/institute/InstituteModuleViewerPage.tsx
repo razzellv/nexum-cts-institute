@@ -12,7 +12,7 @@ type ViewSection = 'content' | 'quiz';
 
 const TIER_ORDER: CourseAccessTier[] = ['explorer', 'professional', 'practitioner'];
 function canAccess(userTier: CourseAccessTier | undefined, courseTier: CourseAccessTier): boolean {
-  if (!userTier) return courseTier === 'explorer';
+  if (!userTier) return false;
   return TIER_ORDER.indexOf(userTier) >= TIER_ORDER.indexOf(courseTier);
 }
 
@@ -40,10 +40,22 @@ export default function InstituteModuleViewerPage() {
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="text-center max-w-sm">
           <p className="text-[#2C1F0E] font-semibold mb-2">Access restricted</p>
-          <p className="text-[#6E5E34] text-sm mb-5">This course requires {course.accessTier} membership.</p>
-          <Link to={`/institute/signup?tier=${course.accessTier}`} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#c9a96e] text-black font-bold text-sm">
-            Upgrade Access
-          </Link>
+          {!userTier ? (
+            <>
+              <p className="text-[#6E5E34] text-sm mb-5">You need to be signed in to access courses.</p>
+              <div className="flex gap-3 justify-center">
+                <Link to="/institute/login" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#00C2A8] text-black font-bold text-sm">Sign In</Link>
+                <Link to="/institute/signup" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#c9a96e] text-black font-bold text-sm">Join Free</Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="text-[#6E5E34] text-sm mb-5">This course requires {course.accessTier} membership.</p>
+              <Link to={`/institute/signup?tier=${course.accessTier}`} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#c9a96e] text-black font-bold text-sm">
+                Upgrade Access
+              </Link>
+            </>
+          )}
         </div>
       </div>
     );

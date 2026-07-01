@@ -46,8 +46,9 @@ export default function InstituteJournalPage() {
               The OI Journal™ is currently being developed. Subscribe to be notified when the first issue publishes — including original articles, research summaries, and professional interviews.
             </p>
             {!submitted ? (
-              <form onSubmit={e => { e.preventDefault(); if (email) setSubmitted(true); }} className="flex gap-2 max-w-sm mx-auto">
-                <input type="email" required placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)}
+              <form name="journal-subscribe" data-netlify="true" onSubmit={async e => { e.preventDefault(); await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': 'journal-subscribe', email }).toString() }).catch(() => {}); setSubmitted(true); }} className="flex gap-2 max-w-sm mx-auto">
+                <input type="hidden" name="form-name" value="journal-subscribe" />
+                <input type="email" required name="email" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)}
                   className="flex-1 px-4 py-2.5 rounded-xl text-sm border focus:outline-none" style={{ background: C.beige, borderColor: C.border, color: C.darkBrown }} />
                 <button type="submit" className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-[13px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
                   <Bell className="h-4 w-4" /> Notify Me

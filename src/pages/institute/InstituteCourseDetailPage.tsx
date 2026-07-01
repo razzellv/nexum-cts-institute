@@ -8,7 +8,7 @@ import { Badge } from '@/components/InstituteUI';
 const TIER_ORDER: CourseAccessTier[] = ['explorer', 'professional', 'practitioner'];
 
 function canAccess(userTier: CourseAccessTier | undefined, courseTier: CourseAccessTier): boolean {
-  if (!userTier) return courseTier === 'explorer';
+  if (!userTier) return false;
   return TIER_ORDER.indexOf(userTier) >= TIER_ORDER.indexOf(courseTier);
 }
 
@@ -81,6 +81,25 @@ export default function InstituteCourseDetailPage() {
             >
               Begin Course <ChevronRight size={15} />
             </Link>
+          ) : !userTier ? (
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 text-[#6E5E34] text-sm">
+                <Lock size={14} />
+                <span>Sign in to access this course</span>
+              </div>
+              <Link
+                to="/institute/login"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#00C2A8] text-black font-bold text-sm hover:bg-[#00C2A8]/90 transition-colors"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/institute/signup"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#c9a96e] text-black font-bold text-sm hover:bg-[#c9a96e]/90 transition-colors"
+              >
+                Join Free
+              </Link>
+            </div>
           ) : (
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 text-[#6E5E34] text-sm">

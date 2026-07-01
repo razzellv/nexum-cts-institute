@@ -219,6 +219,25 @@ export default function InstituteCTSPage() {
           ))}
         </div>
       </section>
+
+      {/* CTA */}
+      <section className="py-16 px-4 sm:px-6 bg-[#2C1F0E] text-center">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.2em] font-bold mb-4 text-[#D4AF57]">Get Started</p>
+          <h2 className="text-3xl font-bold text-[#FAF9F1] mb-4">Learn CTS™ in Practice</h2>
+          <p className="text-[#C4B49A] text-base mb-8 leading-relaxed">
+            Apply the Comprehensive Thinking System™ through structured courses, access the full standards library, and earn your CTS™ Practitioner designation.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/institute/courses" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: 'linear-gradient(135deg, #00C2A8, #005677)' }}>
+              Explore Courses
+            </Link>
+            <Link to="/institute/standards" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-semibold text-[#FAF9F1] border border-white/20 transition-all hover:bg-white/10">
+              View Standards
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

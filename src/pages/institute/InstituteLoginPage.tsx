@@ -128,8 +128,7 @@ export default function InstituteLoginPage() {
         </div>
 
         <p className="text-center text-[11px] text-[#7A6A55] mt-6">
-          Operational Intelligence Institute™ membership is separate from the OI Platform.{' '}
-          <Link to="/hub" className="hover:text-[#6E5E34] transition-colors">OI Platform login →</Link>
+          Operational Intelligence Institute™ — professional membership platform.
         </p>
       </div>
     </div>

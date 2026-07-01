@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom'
 import { MessageSquare, Users, TrendingUp, Lock } from 'lucide-react'
-import { Button } from '@/components/InstituteUI'
-import Badge from '@/components/InstituteUI'
+import { Button, Badge } from '@/components/InstituteUI'
 
 const forums = [
   {
@@ -173,9 +173,9 @@ export default function ForumsPage() {
                     <span>{forum.posts.toLocaleString()} posts</span>
                   </div>
                   {forum.memberOnly ? (
-                    <Badge variant="gold">Members Only</Badge>
+                    <Link to="/institute/signup"><Badge variant="gold">Members Only</Badge></Link>
                   ) : (
-                    <Button size="sm" variant="outline">Join Discussion</Button>
+                    <Link to="/institute/signup"><Button size="sm" variant="outline">Join Discussion</Button></Link>
                   )}
                 </div>
               </div>
@@ -198,8 +198,8 @@ export default function ForumsPage() {
             Some forums require Operational Intelligence Institute™ membership. Join free to access open forums, or upgrade to unlock all member-only discussions including Knowledge Preservation, Decision Defensibility™, and Government & GovCon.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button>Join Free</Button>
-            <Button variant="gold">View Membership Plans</Button>
+            <Link to="/institute/signup"><Button>Join Free</Button></Link>
+            <Link to="/institute/membership"><Button variant="gold">View Membership Plans</Button></Link>
           </div>
         </div>
       </section>

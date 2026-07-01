@@ -31,12 +31,12 @@ export default function PublicationsPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-[#020509] border-t border-white/[0.06]">
+      <section className="py-16 px-4 bg-[#F3F0EA] border-t border-[#E2D8CC]">
         <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
           {['Research Papers', 'White Papers', 'Technical Briefs'].map((type) => (
             <div
               key={type}
-              className="bg-white/[0.025] border border-white/[0.07] rounded-xl p-6 text-center"
+              className="bg-[#FAF9F1] border border-[#E2D8CC] rounded-xl p-6 text-center"
             >
               <p className="text-[#2C1F0E] font-bold mb-2">{type}</p>
               <p className="text-[#6E5E34] text-sm">Planned for release in the Publications library.</p>

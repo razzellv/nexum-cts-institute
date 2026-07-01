@@ -23,9 +23,14 @@ export default function InstituteContactPage() {
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (name && email && message) setSubmitted(true);
+    const formData = new URLSearchParams({
+      'form-name': 'contact',
+      name, email, topic, message,
+    });
+    await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData.toString() }).catch(() => {});
+    setSubmitted(true);
   }
 
   return (
@@ -57,22 +62,23 @@ export default function InstituteContactPage() {
                   <p className="text-[14px]" style={{ color: C.muted }}>Thank you for reaching out. We'll be in touch within 2 business days.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <form name="contact" data-netlify="true" onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <input type="hidden" name="form-name" value="contact" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-[11px] uppercase tracking-widest font-bold block mb-1.5" style={{ color: C.muted }}>Name</label>
-                      <input required value={name} onChange={e => setName(e.target.value)} placeholder="Your full name"
+                      <input required name="name" value={name} onChange={e => setName(e.target.value)} placeholder="Your full name"
                         className="w-full px-4 py-3 rounded-xl border text-[14px] focus:outline-none focus:border-[#00C2A8]" style={{ background: C.beige, borderColor: C.border, color: C.darkBrown }} />
                     </div>
                     <div>
                       <label className="text-[11px] uppercase tracking-widest font-bold block mb-1.5" style={{ color: C.muted }}>Email</label>
-                      <input required type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
+                      <input required name="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
                         className="w-full px-4 py-3 rounded-xl border text-[14px] focus:outline-none focus:border-[#00C2A8]" style={{ background: C.beige, borderColor: C.border, color: C.darkBrown }} />
                     </div>
                   </div>
                   <div>
                     <label className="text-[11px] uppercase tracking-widest font-bold block mb-1.5" style={{ color: C.muted }}>Topic</label>
-                    <select value={topic} onChange={e => setTopic(e.target.value)}
+                    <select name="topic" value={topic} onChange={e => setTopic(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border text-[14px] focus:outline-none focus:border-[#00C2A8] appearance-none" style={{ background: C.beige, borderColor: C.border, color: topic ? C.darkBrown : C.muted }}>
                       <option value="">Select a topic…</option>
                       {TOPICS.map(t => <option key={t} value={t}>{t}</option>)}
@@ -80,7 +86,7 @@ export default function InstituteContactPage() {
                   </div>
                   <div>
                     <label className="text-[11px] uppercase tracking-widest font-bold block mb-1.5" style={{ color: C.muted }}>Message</label>
-                    <textarea required rows={5} value={message} onChange={e => setMessage(e.target.value)} placeholder="How can we help?"
+                    <textarea required name="message" rows={5} value={message} onChange={e => setMessage(e.target.value)} placeholder="How can we help?"
                       className="w-full px-4 py-3 rounded-xl border text-[14px] focus:outline-none focus:border-[#00C2A8] resize-none" style={{ background: C.beige, borderColor: C.border, color: C.darkBrown }} />
                   </div>
                   <button type="submit" className="self-start px-7 py-3 rounded-xl text-[14px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { MessageSquare, Bookmark, Share2, ExternalLink } from 'lucide-react'
 import { Button, Badge } from '@/components/InstituteUI'
 
@@ -59,6 +60,14 @@ const posts = [
 ]
 
 export default function PulsePage() {
+  const [pulseEmail, setPulseEmail] = useState('')
+  const [pulseSubmitted, setPulseSubmitted] = useState(false)
+
+  async function handlePulseSubscribe(e: React.FormEvent) {
+    e.preventDefault()
+    await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': 'pulse-subscribe', email: pulseEmail }).toString() }).catch(() => {})
+    setPulseSubmitted(true)
+  }
   return (
     <div className="bg-[#FAF9F1]">
       {/* Hero */}
@@ -136,14 +145,25 @@ export default function PulsePage() {
           <p className="text-[#4A3828] text-sm mb-6">
             Weekly briefing — curated operational intelligence with CTS™ context. Free for all members.
           </p>
-          <div className="flex gap-2 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="flex-1 bg-[#EDE8E0] border border-[#E2D8CC] rounded-lg px-4 py-2.5 text-sm text-[#2C1F0E] placeholder-[#7A6A55] focus:outline-none focus:border-[#00C2A8]/40"
-            />
-            <Button>Subscribe</Button>
-          </div>
+          {pulseSubmitted ? (
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00C2A8]/10 border border-[#00C2A8]/20 rounded-lg text-[#00C2A8] text-sm font-medium">
+              You're subscribed — first issue coming soon.
+            </div>
+          ) : (
+            <form name="pulse-subscribe" data-netlify="true" onSubmit={handlePulseSubscribe} className="flex gap-2 max-w-md mx-auto">
+              <input type="hidden" name="form-name" value="pulse-subscribe" />
+              <input
+                type="email"
+                required
+                name="email"
+                placeholder="your@email.com"
+                value={pulseEmail}
+                onChange={e => setPulseEmail(e.target.value)}
+                className="flex-1 bg-[#EDE8E0] border border-[#E2D8CC] rounded-lg px-4 py-2.5 text-sm text-[#2C1F0E] placeholder-[#7A6A55] focus:outline-none focus:border-[#00C2A8]/40"
+              />
+              <Button type="submit">Subscribe</Button>
+            </form>
+          )}
         </div>
       </section>
     </div>

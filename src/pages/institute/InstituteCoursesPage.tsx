@@ -15,7 +15,7 @@ function tierColor(tier: CourseAccessTier): string {
 }
 
 function canAccess(userTier: CourseAccessTier | undefined, courseTier: CourseAccessTier): boolean {
-  if (!userTier) return courseTier === 'explorer';
+  if (!userTier) return false;
   return TIER_ORDER.indexOf(userTier) >= TIER_ORDER.indexOf(courseTier);
 }
 
@@ -182,6 +182,19 @@ export default function InstituteCoursesPage() {
                       >
                         Start Course <ChevronRight size={14} />
                       </Link>
+                    ) : !userTier ? (
+                      <div className="flex flex-col items-end gap-1.5">
+                        <div className="flex items-center gap-1.5 text-[#7A6A55] text-sm">
+                          <Lock size={12} />
+                          <span>Sign in required</span>
+                        </div>
+                        <Link
+                          to="/institute/login"
+                          className="text-[10px] text-[#00C2A8]/50 hover:text-[#00C2A8] transition-colors"
+                        >
+                          Sign in →
+                        </Link>
+                      </div>
                     ) : (
                       <div className="flex flex-col items-end gap-1.5">
                         <div className="flex items-center gap-1.5 text-[#7A6A55] text-sm">
@@ -189,7 +202,7 @@ export default function InstituteCoursesPage() {
                           <span>Locked</span>
                         </div>
                         <Link
-                          to="/institute/signup"
+                          to={`/institute/signup?tier=${course.accessTier}`}
                           className="text-[10px] text-[#00C2A8]/50 hover:text-[#00C2A8] transition-colors"
                         >
                           Upgrade →

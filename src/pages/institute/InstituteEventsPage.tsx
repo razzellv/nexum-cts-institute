@@ -60,9 +60,10 @@ export default function EventsPage() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (email) setSubmitted(true)
+    await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': 'events-notify', email }).toString() }).catch(() => {})
+    setSubmitted(true)
   }
 
   return (
@@ -94,10 +95,12 @@ export default function EventsPage() {
             </p>
 
             {!submitted ? (
-              <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm mx-auto">
+              <form name="events-notify" data-netlify="true" onSubmit={handleSubmit} className="flex gap-2 max-w-sm mx-auto">
+                <input type="hidden" name="form-name" value="events-notify" />
                 <input
                   type="email"
                   required
+                  name="email"
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

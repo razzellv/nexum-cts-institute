@@ -40,6 +40,19 @@ interface InstituteAuthState {
   refreshProfile: () => Promise<void>;
 }
 
+const ADMIN_EMAILS = ['razzellv@nexumsuum.com', 'razzionlife@gmail.com'];
+
+const ADMIN_PROFILE: Omit<InstituteProfile, 'id' | 'display_name'> = {
+  organization: 'Nexum Suum Inc.',
+  job_title: 'Founder',
+  tier: 'founding',
+  stripe_customer_id: '',
+  stripe_subscription_id: '',
+  subscription_status: 'active',
+  created_at: '2024-01-01T00:00:00.000Z',
+  last_active: new Date().toISOString(),
+};
+
 const InstituteAuthContext = createContext<InstituteAuthState | null>(null);
 
 export function InstituteAuthProvider({ children }: { children: ReactNode }) {
@@ -52,18 +65,21 @@ export function InstituteAuthProvider({ children }: { children: ReactNode }) {
     meta: SignUpMeta,
   ): Promise<{ error: string | null }> {
     const newUser = { id: crypto.randomUUID(), email };
-    const newProfile: InstituteProfile = {
-      id: newUser.id,
-      display_name: meta.display_name,
-      organization: meta.organization ?? '',
-      job_title: meta.job_title ?? '',
-      tier: meta.tier ?? 'explorer',
-      stripe_customer_id: '',
-      stripe_subscription_id: '',
-      subscription_status: 'inactive',
-      created_at: new Date().toISOString(),
-      last_active: new Date().toISOString(),
-    };
+    const isAdmin = ADMIN_EMAILS.includes(email.toLowerCase().trim());
+    const newProfile: InstituteProfile = isAdmin
+      ? { id: newUser.id, display_name: meta.display_name || 'Admin', ...ADMIN_PROFILE }
+      : {
+          id: newUser.id,
+          display_name: meta.display_name,
+          organization: meta.organization ?? '',
+          job_title: meta.job_title ?? '',
+          tier: meta.tier ?? 'explorer',
+          stripe_customer_id: '',
+          stripe_subscription_id: '',
+          subscription_status: 'inactive',
+          created_at: new Date().toISOString(),
+          last_active: new Date().toISOString(),
+        };
     setUser(newUser);
     setProfile(newProfile);
     return { error: null };
@@ -73,7 +89,12 @@ export function InstituteAuthProvider({ children }: { children: ReactNode }) {
     email: string,
     _password: string,
   ): Promise<{ error: string | null }> {
-    setUser({ id: crypto.randomUUID(), email });
+    const id = crypto.randomUUID();
+    const isAdmin = ADMIN_EMAILS.includes(email.toLowerCase().trim());
+    setUser({ id, email });
+    if (isAdmin) {
+      setProfile({ id, display_name: 'Admin', ...ADMIN_PROFILE });
+    }
     return { error: null };
   }
 

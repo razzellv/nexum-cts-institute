@@ -74,11 +74,10 @@ export default function DownloadsPage() {
     setEmail('')
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (email) {
-      setSubmitted(true)
-    }
+    await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': 'download-request', email, download: selectedDownload ?? '' }).toString() }).catch(() => {})
+    setSubmitted(true)
   }
 
   return (
@@ -159,10 +158,13 @@ export default function DownloadsPage() {
                 <p className="text-[#6E5E34] text-xs mb-6">
                   Enter your email to receive your download link and stay informed on new Operational Intelligence Institute™ resources.
                 </p>
-                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <form name="download-request" data-netlify="true" onSubmit={handleSubmit} className="flex flex-col gap-3">
+                  <input type="hidden" name="form-name" value="download-request" />
+                  <input type="hidden" name="download" value={selectedDownload ?? ''} />
                   <input
                     type="email"
                     required
+                    name="email"
                     placeholder="your@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
