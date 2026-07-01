@@ -29,7 +29,7 @@ export default function InstituteModuleViewerPage() {
   if (!course || !mod) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-white/40">Module not found.</p>
+        <p className="text-[#6E5E34]">Module not found.</p>
       </div>
     );
   }
@@ -39,8 +39,8 @@ export default function InstituteModuleViewerPage() {
     return (
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="text-center max-w-sm">
-          <p className="text-white font-semibold mb-2">Access restricted</p>
-          <p className="text-white/40 text-sm mb-5">This course requires {course.accessTier} membership.</p>
+          <p className="text-[#2C1F0E] font-semibold mb-2">Access restricted</p>
+          <p className="text-[#6E5E34] text-sm mb-5">This course requires {course.accessTier} membership.</p>
           <Link to={`/institute/signup?tier=${course.accessTier}`} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#c9a96e] text-black font-bold text-sm">
             Upgrade Access
           </Link>
@@ -73,22 +73,22 @@ export default function InstituteModuleViewerPage() {
       <div className="max-w-4xl mx-auto">
 
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-white/30 mb-8">
-          <button onClick={() => navigate('/institute/courses')} className="hover:text-white transition-colors">Courses</button>
+        <div className="flex items-center gap-2 text-sm text-[#6E5E34] mb-8">
+          <button onClick={() => navigate('/institute/courses')} className="hover:text-[#00C2A8] transition-colors">Courses</button>
           <ChevronRight size={12} />
-          <button onClick={() => navigate(`/institute/courses/${course.id}`)} className="hover:text-white transition-colors">{course.title}</button>
+          <button onClick={() => navigate(`/institute/courses/${course.id}`)} className="hover:text-[#00C2A8] transition-colors">{course.title}</button>
           <ChevronRight size={12} />
-          <span className="text-white/60">{mod.title}</span>
+          <span className="text-[#4A3828]">{mod.title}</span>
         </div>
 
         {/* Module header */}
         <div className="mb-8">
-          <div className="flex items-center gap-2 mb-2 text-xs text-white/40 uppercase tracking-widest">
+          <div className="flex items-center gap-2 mb-2 text-xs text-[#6E5E34] uppercase tracking-widest">
             <span>Module {mod.number} of {allModules.length}</span>
             <span>·</span>
             <span className="flex items-center gap-1"><Clock size={11} />{mod.estimatedMinutes} min</span>
           </div>
-          <h1 className="text-2xl md:text-3xl font-bold text-white">{mod.title}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-[#2C1F0E]">{mod.title}</h1>
           <p className="text-[#00FFE1] mt-1 font-medium">{mod.subtitle}</p>
         </div>
 
@@ -100,8 +100,8 @@ export default function InstituteModuleViewerPage() {
               onClick={() => setSection(s)}
               className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 section === s
-                  ? 'bg-white/[0.07] text-white'
-                  : 'text-white/40 hover:text-white/70'
+                  ? 'bg-white/[0.07] text-[#2C1F0E]'
+                  : 'text-[#6E5E34] hover:text-[#4A3828]'
               }`}
             >
               {s === 'content' ? 'Module Content' : 'Knowledge Test'}
@@ -115,7 +115,7 @@ export default function InstituteModuleViewerPage() {
 
             {/* Overview */}
             <section>
-              <p className="text-white/60 leading-relaxed text-base">{mod.overview}</p>
+              <p className="text-[#4A3828] leading-relaxed text-base">{mod.overview}</p>
             </section>
 
             {/* Key Terms */}
@@ -123,13 +123,13 @@ export default function InstituteModuleViewerPage() {
               <section>
                 <div className="flex items-center gap-2 mb-4">
                   <BookOpen size={15} className="text-[#c9a96e]" />
-                  <h2 className="text-white font-bold text-lg">Key Terms</h2>
+                  <h2 className="text-[#2C1F0E] font-bold text-lg">Key Terms</h2>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {mod.keyTerms.map(kt => (
                     <div key={kt.term} className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-4">
                       <p className="text-[#c9a96e] font-bold text-sm mb-1">{kt.term}</p>
-                      <p className="text-white/50 text-xs leading-relaxed">{kt.definition}</p>
+                      <p className="text-[#4A3828] text-xs leading-relaxed">{kt.definition}</p>
                     </div>
                   ))}
                 </div>
@@ -141,13 +141,13 @@ export default function InstituteModuleViewerPage() {
               <section>
                 <div className="flex items-center gap-2 mb-4">
                   <Lightbulb size={15} className="text-[#00FFE1]" />
-                  <h2 className="text-white font-bold text-lg">Core Concepts</h2>
+                  <h2 className="text-[#2C1F0E] font-bold text-lg">Core Concepts</h2>
                 </div>
                 <div className="space-y-4">
                   {mod.concepts.map((c, i) => (
                     <div key={i} className="bg-white/[0.025] border border-white/[0.06] rounded-xl p-5">
-                      <h3 className="text-white font-semibold mb-2 text-sm">{c.title}</h3>
-                      <p className="text-white/55 text-sm leading-relaxed">{c.body}</p>
+                      <h3 className="text-[#2C1F0E] font-semibold mb-2 text-sm">{c.title}</h3>
+                      <p className="text-[#4A3828] text-sm leading-relaxed">{c.body}</p>
                     </div>
                   ))}
                 </div>
@@ -159,7 +159,7 @@ export default function InstituteModuleViewerPage() {
               <section>
                 <div className="flex items-center gap-2 mb-4">
                   <GitBranch size={15} className="text-[#00FFE1]" />
-                  <h2 className="text-white font-bold text-lg">{mod.diagram.title}</h2>
+                  <h2 className="text-[#2C1F0E] font-bold text-lg">{mod.diagram.title}</h2>
                 </div>
                 <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-6">
                   {/* Flow diagram */}
@@ -171,13 +171,13 @@ export default function InstituteModuleViewerPage() {
                             {node}
                           </div>
                           {i < mod.diagram!.nodes.length - 1 && (
-                            <ChevronRight size={14} className="text-white/20 flex-none" />
+                            <ChevronRight size={14} className="text-[#7A6A55] flex-none" />
                           )}
                         </div>
                       ))}
                     </div>
                   </div>
-                  <p className="text-white/40 text-xs mt-5 leading-relaxed text-center max-w-2xl mx-auto">
+                  <p className="text-[#6E5E34] text-xs mt-5 leading-relaxed text-center max-w-2xl mx-auto">
                     {mod.diagram.description}
                   </p>
                 </div>
@@ -189,11 +189,11 @@ export default function InstituteModuleViewerPage() {
               <section>
                 <div className="flex items-center gap-2 mb-4">
                   <Target size={15} className="text-[#c9a96e]" />
-                  <h2 className="text-white font-bold text-lg">Practitioner Strategies</h2>
+                  <h2 className="text-[#2C1F0E] font-bold text-lg">Practitioner Strategies</h2>
                 </div>
                 <ul className="space-y-3">
                   {mod.strategies.map((s, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-white/60">
+                    <li key={i} className="flex items-start gap-3 text-sm text-[#4A3828]">
                       <span className="flex-none w-5 h-5 rounded bg-[#c9a96e]/10 text-[#c9a96e] text-[10px] font-bold flex items-center justify-center mt-0.5">
                         {i + 1}
                       </span>
@@ -212,16 +212,16 @@ export default function InstituteModuleViewerPage() {
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-xs font-semibold text-white/70 uppercase tracking-wide mb-1">Scenario</p>
-                    <p className="text-white/60 text-sm leading-relaxed">{mod.practiceExample.scenario}</p>
+                    <p className="text-xs font-semibold text-[#4A3828] uppercase tracking-wide mb-1">Scenario</p>
+                    <p className="text-[#4A3828] text-sm leading-relaxed">{mod.practiceExample.scenario}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-white/70 uppercase tracking-wide mb-1">Application</p>
-                    <p className="text-white/60 text-sm leading-relaxed">{mod.practiceExample.application}</p>
+                    <p className="text-xs font-semibold text-[#4A3828] uppercase tracking-wide mb-1">Application</p>
+                    <p className="text-[#4A3828] text-sm leading-relaxed">{mod.practiceExample.application}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-white/70 uppercase tracking-wide mb-1">Expected Outcome</p>
-                    <p className="text-white/60 text-sm leading-relaxed">{mod.practiceExample.expectedOutcome}</p>
+                    <p className="text-xs font-semibold text-[#4A3828] uppercase tracking-wide mb-1">Expected Outcome</p>
+                    <p className="text-[#4A3828] text-sm leading-relaxed">{mod.practiceExample.expectedOutcome}</p>
                   </div>
                 </div>
               </div>
@@ -246,7 +246,7 @@ export default function InstituteModuleViewerPage() {
         )}
 
         {!quiz && section === 'quiz' && (
-          <div className="text-center py-16 text-white/30">
+          <div className="text-center py-16 text-[#6E5E34]">
             <p>Knowledge test not yet available for this module.</p>
             <Button variant="ghost" size="md" className="mt-4" onClick={handleContinue}>
               Continue Anyway

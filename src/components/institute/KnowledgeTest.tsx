@@ -66,12 +66,12 @@ export default function KnowledgeTest({ quiz, onPass, onContinue }: Props) {
         <div className="w-14 h-14 rounded-2xl bg-[#00FFE1]/10 border border-[#00FFE1]/20 flex items-center justify-center mx-auto mb-5">
           <Trophy size={24} className="text-[#00FFE1]" />
         </div>
-        <h3 className="text-white font-bold text-xl mb-2">Module Knowledge Test</h3>
-        <p className="text-white/50 text-sm mb-6">
+        <h3 className="text-[#2C1F0E] font-bold text-xl mb-2">Module Knowledge Test</h3>
+        <p className="text-[#4A3828] text-sm mb-6">
           {totalQ} questions · {quiz.estimatedMinutes} min · Pass at {quiz.passingScore}% or higher
         </p>
         <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-4 mb-6 text-left">
-          <ul className="space-y-2 text-sm text-white/50">
+          <ul className="space-y-2 text-sm text-[#4A3828]">
             <li className="flex items-start gap-2"><Check size={14} className="text-[#00FFE1] mt-0.5 shrink-0" />Select one answer per question</li>
             <li className="flex items-start gap-2"><Check size={14} className="text-[#00FFE1] mt-0.5 shrink-0" />You'll see the explanation after each answer</li>
             <li className="flex items-start gap-2"><Check size={14} className="text-[#00FFE1] mt-0.5 shrink-0" />Retakes allowed until you pass</li>
@@ -101,13 +101,13 @@ export default function KnowledgeTest({ quiz, onPass, onContinue }: Props) {
           }
         </div>
 
-        <h3 className="text-white font-bold text-2xl mb-1">
+        <h3 className="text-[#2C1F0E] font-bold text-2xl mb-1">
           {scorePercent}%
         </h3>
         <p className={`font-semibold mb-1 ${passed ? 'text-[#00FFE1]' : 'text-red-400'}`}>
           {passed ? 'Passed' : 'Not yet — retake to advance'}
         </p>
-        <p className="text-white/40 text-sm mb-8">
+        <p className="text-[#6E5E34] text-sm mb-8">
           {correctCount} of {totalQ} correct · Passing score: {quiz.passingScore}%
         </p>
 
@@ -120,8 +120,8 @@ export default function KnowledgeTest({ quiz, onPass, onContinue }: Props) {
                 key={q.id}
                 className={`flex items-start gap-3 rounded-lg p-3 text-sm border ${
                   wasCorrect
-                    ? 'bg-[#00FFE1]/[0.04] border-[#00FFE1]/15 text-white/70'
-                    : 'bg-red-500/[0.04] border-red-500/15 text-white/50'
+                    ? 'bg-[#00FFE1]/[0.04] border-[#00FFE1]/15 text-[#4A3828]'
+                    : 'bg-red-500/[0.04] border-red-500/15 text-[#4A3828]'
                 }`}
               >
                 {wasCorrect
@@ -155,7 +155,7 @@ export default function KnowledgeTest({ quiz, onPass, onContinue }: Props) {
     <div className="bg-white/[0.03] border border-white/[0.07] rounded-2xl p-6">
       {/* Progress */}
       <div className="flex items-center justify-between mb-6">
-        <span className="text-xs text-white/40">Question {current + 1} of {totalQ}</span>
+        <span className="text-xs text-[#6E5E34]">Question {current + 1} of {totalQ}</span>
         <div className="flex gap-1">
           {quiz.questions.map((_, i) => (
             <div
@@ -166,11 +166,11 @@ export default function KnowledgeTest({ quiz, onPass, onContinue }: Props) {
             />
           ))}
         </div>
-        <span className="text-xs text-white/40">{quiz.passingScore}% to pass</span>
+        <span className="text-xs text-[#6E5E34]">{quiz.passingScore}% to pass</span>
       </div>
 
       {/* Question */}
-      <h3 className="text-white font-semibold text-base leading-relaxed mb-6">
+      <h3 className="text-[#2C1F0E] font-semibold text-base leading-relaxed mb-6">
         {question.question}
       </h3>
 
@@ -181,13 +181,13 @@ export default function KnowledgeTest({ quiz, onPass, onContinue }: Props) {
           const isCorrect = question.correctIndex === idx;
           const wasSelected = answers[current] === idx;
 
-          let stateClass = 'border-white/[0.07] bg-white/[0.02] text-white/70 hover:border-white/[0.14] hover:bg-white/[0.04]';
+          let stateClass = 'border-white/[0.07] bg-white/[0.02] text-[#4A3828] hover:border-white/[0.14] hover:bg-white/[0.04]';
           if (revealed) {
-            if (isCorrect) stateClass = 'border-[#00FFE1]/40 bg-[#00FFE1]/[0.06] text-white';
+            if (isCorrect) stateClass = 'border-[#00FFE1]/40 bg-[#00FFE1]/[0.06] text-[#2C1F0E]';
             else if (wasSelected && !isCorrect) stateClass = 'border-red-500/40 bg-red-500/[0.06] text-red-300';
-            else stateClass = 'border-white/[0.04] bg-white/[0.01] text-white/30';
+            else stateClass = 'border-white/[0.04] bg-white/[0.01] text-[#6E5E34]';
           } else if (isSelected) {
-            stateClass = 'border-[#00FFE1]/40 bg-[#00FFE1]/[0.06] text-white';
+            stateClass = 'border-[#00FFE1]/40 bg-[#00FFE1]/[0.06] text-[#2C1F0E]';
           }
 
           return (
@@ -200,8 +200,8 @@ export default function KnowledgeTest({ quiz, onPass, onContinue }: Props) {
               <span className={`flex-none w-6 h-6 rounded-lg border text-xs flex items-center justify-center font-bold mt-0.5 ${
                 revealed
                   ? isCorrect ? 'border-[#00FFE1]/40 bg-[#00FFE1]/10 text-[#00FFE1]'
-                  : wasSelected ? 'border-red-500/40 bg-red-500/10 text-red-400' : 'border-white/10 text-white/20'
-                  : isSelected ? 'border-[#00FFE1]/40 bg-[#00FFE1]/10 text-[#00FFE1]' : 'border-white/15 text-white/30'
+                  : wasSelected ? 'border-red-500/40 bg-red-500/10 text-red-400' : 'border-white/10 text-[#7A6A55]'
+                  : isSelected ? 'border-[#00FFE1]/40 bg-[#00FFE1]/10 text-[#00FFE1]' : 'border-white/15 text-[#6E5E34]'
               }`}>
                 {revealed && isCorrect ? <Check size={11} /> : revealed && wasSelected && !isCorrect ? <X size={11} /> : String.fromCharCode(65 + idx)}
               </span>
@@ -215,10 +215,10 @@ export default function KnowledgeTest({ quiz, onPass, onContinue }: Props) {
       {revealed && (
         <div className={`rounded-xl p-4 mb-5 text-sm border ${
           answers[current] === question.correctIndex
-            ? 'bg-[#00FFE1]/[0.04] border-[#00FFE1]/15 text-white/70'
-            : 'bg-red-500/[0.04] border-red-500/15 text-white/60'
+            ? 'bg-[#00FFE1]/[0.04] border-[#00FFE1]/15 text-[#4A3828]'
+            : 'bg-red-500/[0.04] border-red-500/15 text-[#4A3828]'
         }`}>
-          <p className="font-semibold text-white/90 mb-1">{answers[current] === question.correctIndex ? 'Correct.' : 'Incorrect.'}</p>
+          <p className="font-semibold text-[#2C1F0E]/90 mb-1">{answers[current] === question.correctIndex ? 'Correct.' : 'Incorrect.'}</p>
           <p>{question.explanation}</p>
         </div>
       )}

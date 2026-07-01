@@ -60,15 +60,15 @@ const posts = [
 
 export default function PulsePage() {
   return (
-    <div className="bg-[#04080f]">
+    <div className="bg-[#FAF9F1]">
       {/* Hero */}
-      <section className="py-20 border-b border-white/[0.06]">
+      <section className="py-20 border-b border-[#E2D8CC]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-4">Intelligence Feed</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5">
-            Operational Pulse<span className="text-[#c9a96e] text-2xl align-super">™</span>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF57] font-bold mb-4">Intelligence Feed</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#2C1F0E] mb-5">
+            Operational Pulse<span className="text-[#D4AF57] text-2xl align-super">™</span>
           </h1>
-          <p className="text-white/60 text-lg leading-relaxed">
+          <p className="text-[#4A3828] text-lg leading-relaxed">
             Curated operational intelligence — regulatory updates, standards changes, and industry developments analyzed through the CTS™ lens. Each post includes a "Why It Matters" summary and links to relevant CTS™ standards.
           </p>
         </div>
@@ -81,32 +81,32 @@ export default function PulsePage() {
             {posts.map((post, i) => (
               <article
                 key={i}
-                className="bg-white/[0.025] border border-white/[0.06] rounded-xl p-7 hover:border-white/[0.12] transition-all duration-300"
+                className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-xl p-7 hover:border-[#E2D8CC] transition-all duration-300"
               >
                 <div className="flex flex-wrap items-center gap-2 mb-4">
                   {post.industries.map((ind) => (
                     <span
                       key={ind}
-                      className="px-2.5 py-1 bg-white/[0.04] border border-white/[0.06] rounded-full text-[10px] text-white/40 uppercase tracking-wider"
+                      className="px-2.5 py-1 bg-[#EDE8E0] border border-[#E2D8CC] rounded-full text-[10px] text-[#6E5E34] uppercase tracking-wider"
                     >
                       {ind}
                     </span>
                   ))}
-                  <span className="ml-auto text-white/30 text-xs">{post.date}</span>
+                  <span className="ml-auto text-[#6E5E34] text-xs">{post.date}</span>
                 </div>
 
-                <h2 className="text-xl font-bold text-white mb-3 leading-snug">{post.headline}</h2>
-                <p className="text-white/60 text-sm leading-relaxed mb-4">{post.summary}</p>
+                <h2 className="text-xl font-bold text-[#2C1F0E] mb-3 leading-snug">{post.headline}</h2>
+                <p className="text-[#4A3828] text-sm leading-relaxed mb-4">{post.summary}</p>
 
-                <div className="bg-[#00FFE1]/[0.04] border border-[#00FFE1]/10 rounded-lg p-4 mb-4">
-                  <p className="text-[10px] uppercase tracking-[0.15em] text-[#00FFE1] font-bold mb-2">Why It Matters</p>
-                  <p className="text-white/70 text-sm leading-relaxed">{post.whyItMatters}</p>
+                <div className="bg-[#00C2A8]/[0.04] border border-[#00C2A8]/10 rounded-lg p-4 mb-4">
+                  <p className="text-[10px] uppercase tracking-[0.15em] text-[#00C2A8] font-bold mb-2">Why It Matters</p>
+                  <p className="text-[#4A3828] text-sm leading-relaxed">{post.whyItMatters}</p>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <Badge variant="teal">{post.relatedStandard}</Badge>
-                    <button className="flex items-center gap-1.5 text-white/40 hover:text-white text-xs transition-colors">
+                    <button className="flex items-center gap-1.5 text-[#6E5E34] hover:text-[#00C2A8] text-xs transition-colors">
                       <MessageSquare size={13} />
                       {post.threads} threads
                     </button>
@@ -130,17 +130,17 @@ export default function PulsePage() {
       </section>
 
       {/* Subscribe */}
-      <section className="border-t border-white/[0.06] py-16">
+      <section className="border-t border-[#E2D8CC] py-16">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">Get Operational Pulse™ in Your Inbox</h2>
-          <p className="text-white/50 text-sm mb-6">
+          <h2 className="text-2xl font-bold text-[#2C1F0E] mb-3">Get Operational Pulse™ in Your Inbox</h2>
+          <p className="text-[#4A3828] text-sm mb-6">
             Weekly briefing — curated operational intelligence with CTS™ context. Free for all members.
           </p>
           <div className="flex gap-2 max-w-md mx-auto">
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#00FFE1]/40"
+              className="flex-1 bg-[#EDE8E0] border border-[#E2D8CC] rounded-lg px-4 py-2.5 text-sm text-[#2C1F0E] placeholder-[#7A6A55] focus:outline-none focus:border-[#00C2A8]/40"
             />
             <Button>Subscribe</Button>
           </div>

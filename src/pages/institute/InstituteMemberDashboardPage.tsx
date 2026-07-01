@@ -124,10 +124,10 @@ export default function InstituteMemberDashboardPage() {
           <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-1">
             Member Dashboard
           </p>
-          <h1 className="text-2xl font-bold text-white">
+          <h1 className="text-2xl font-bold text-[#2C1F0E]">
             Welcome back, {profile.display_name.split(' ')[0]}
           </h1>
-          <p className="text-white/40 text-sm mt-0.5">{user?.email}</p>
+          <p className="text-[#6E5E34] text-sm mt-0.5">{user?.email}</p>
         </div>
         <div className="flex items-center gap-2.5">
           <Badge variant={badgeVariant}>{TIER_LABELS[tier]}</Badge>
@@ -147,21 +147,21 @@ export default function InstituteMemberDashboardPage() {
             </span>
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-bold text-white text-lg">{profile.display_name}</p>
+            <p className="font-bold text-[#2C1F0E] text-lg">{profile.display_name}</p>
             <div className="flex flex-wrap items-center gap-3 mt-1.5">
               {profile.organization && (
-                <span className="flex items-center gap-1.5 text-sm text-white/50">
+                <span className="flex items-center gap-1.5 text-sm text-[#4A3828]">
                   <Building2 size={13} />
                   {profile.organization}
                 </span>
               )}
               {profile.job_title && (
-                <span className="flex items-center gap-1.5 text-sm text-white/50">
+                <span className="flex items-center gap-1.5 text-sm text-[#4A3828]">
                   <Briefcase size={13} />
                   {profile.job_title}
                 </span>
               )}
-              <span className="flex items-center gap-1.5 text-sm text-white/50">
+              <span className="flex items-center gap-1.5 text-sm text-[#4A3828]">
                 <Clock size={13} />
                 Member since {formatDate(profile.created_at)}
               </span>
@@ -183,8 +183,8 @@ export default function InstituteMemberDashboardPage() {
           <div className="flex items-start gap-2.5">
             <Shield size={16} className="text-[#00FFE1] mt-0.5 shrink-0" />
             <div>
-              <p className="text-sm font-semibold text-white">Unlock more access</p>
-              <p className="text-sm text-white/45">
+              <p className="text-sm font-semibold text-[#2C1F0E]">Unlock more access</p>
+              <p className="text-sm text-[#6E5E34]">
                 Upgrade your membership to unlock posting, roundtables, and member publications.
               </p>
             </div>
@@ -199,7 +199,7 @@ export default function InstituteMemberDashboardPage() {
 
       {/* Quick access */}
       <div className="mb-10">
-        <h2 className="text-sm font-semibold text-white/50 uppercase tracking-wider mb-4">
+        <h2 className="text-sm font-semibold text-[#4A3828] uppercase tracking-wider mb-4">
           Your access
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -211,8 +211,8 @@ export default function InstituteMemberDashboardPage() {
                     <Icon size={15} className="text-[#00FFE1]" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white">{label}</p>
-                    <p className="text-xs text-white/40 mt-0.5 leading-relaxed">{description}</p>
+                    <p className="text-sm font-semibold text-[#2C1F0E]">{label}</p>
+                    <p className="text-xs text-[#6E5E34] mt-0.5 leading-relaxed">{description}</p>
                   </div>
                 </div>
               </Card>
@@ -224,7 +224,7 @@ export default function InstituteMemberDashboardPage() {
       {/* Locked features */}
       {lockedLinks.length > 0 && (
         <div className="mb-10">
-          <h2 className="text-sm font-semibold text-white/30 uppercase tracking-wider mb-4">
+          <h2 className="text-sm font-semibold text-[#6E5E34] uppercase tracking-wider mb-4">
             Available on higher tiers
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -233,11 +233,11 @@ export default function InstituteMemberDashboardPage() {
                 <Card className="h-full">
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center shrink-0">
-                      <Icon size={15} className="text-white/30" />
+                      <Icon size={15} className="text-[#6E5E34]" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-white/60">{label}</p>
-                      <p className="text-xs text-white/30 mt-0.5 leading-relaxed">{description}</p>
+                      <p className="text-sm font-semibold text-[#4A3828]">{label}</p>
+                      <p className="text-xs text-[#6E5E34] mt-0.5 leading-relaxed">{description}</p>
                     </div>
                   </div>
                 </Card>
@@ -249,10 +249,10 @@ export default function InstituteMemberDashboardPage() {
 
       {/* Account settings */}
       <div className="border-t border-white/[0.06] pt-6 flex items-center justify-between">
-        <p className="text-xs text-white/25">
+        <p className="text-xs text-[#7A6A55]">
           Operational Intelligence Institute™ member account · {user?.email}
         </p>
-        <button className="flex items-center gap-1.5 text-xs text-white/30 hover:text-white/50 transition-colors">
+        <button className="flex items-center gap-1.5 text-xs text-[#6E5E34] hover:text-[#4A3828] transition-colors">
           <Settings size={12} />
           Account settings
         </button>

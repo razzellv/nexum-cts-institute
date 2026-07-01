@@ -80,9 +80,9 @@ export default function InstituteResearchPage() {
 
       <section className="py-20" style={{ background: C.darkBrown }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white" style={{ fontFamily: 'Playfair Display, serif' }}>Research Collaboration</h2>
-          <p className="text-base opacity-60 text-white mb-8">The Institute welcomes research partnerships with universities, government agencies, and professional organizations advancing the study of operational intelligence.</p>
-          <Link to="/institute/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
+          <h2 className="text-3xl font-bold mb-4 text-[#2C1F0E]" style={{ fontFamily: 'Playfair Display, serif' }}>Research Collaboration</h2>
+          <p className="text-base opacity-60 text-[#2C1F0E] mb-8">The Institute welcomes research partnerships with universities, government agencies, and professional organizations advancing the study of operational intelligence.</p>
+          <Link to="/institute/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
             Propose Research Collaboration <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

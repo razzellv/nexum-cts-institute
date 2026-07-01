@@ -83,7 +83,7 @@ export default function InstituteContactPage() {
                     <textarea required rows={5} value={message} onChange={e => setMessage(e.target.value)} placeholder="How can we help?"
                       className="w-full px-4 py-3 rounded-xl border text-[14px] focus:outline-none focus:border-[#00C2A8] resize-none" style={{ background: C.beige, borderColor: C.border, color: C.darkBrown }} />
                   </div>
-                  <button type="submit" className="self-start px-7 py-3 rounded-xl text-[14px] font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
+                  <button type="submit" className="self-start px-7 py-3 rounded-xl text-[14px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
                     Send Message
                   </button>
                 </form>

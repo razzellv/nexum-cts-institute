@@ -81,23 +81,23 @@ export default function InstituteCTSPage() {
   ]
 
   return (
-    <div className="bg-[#04080f] text-white">
+    <div className="bg-[#FAF9F1] text-[#2C1F0E]">
       {/* Hero */}
       <section className="py-16 px-4 sm:px-6 max-w-7xl mx-auto">
-        <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-3">CTS™</p>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Critical Thinking System™</h1>
-        <p className="text-white/55 text-sm leading-relaxed max-w-2xl">
+        <p className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF57] font-bold mb-3">CTS™</p>
+        <h1 className="text-3xl md:text-4xl font-bold text-[#2C1F0E] mb-4">Critical Thinking System™</h1>
+        <p className="text-[#4A3828] text-sm leading-relaxed max-w-2xl">
           The Governing Methodology for Operational Intelligence™
         </p>
       </section>
 
       {/* Official Definition Block */}
       <section className="px-4 sm:px-6 max-w-7xl mx-auto">
-        <div className="border-l-4 border-[#c9a96e] bg-[#c9a96e]/[0.04] p-6 rounded-r-xl my-8">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-3">
+        <div className="border-l-4 border-[#c9a96e] bg-[#D4AF57]/[0.04] p-6 rounded-r-xl my-8">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF57] font-bold mb-3">
             Official Definition — CTS-STD-001 §1.1
           </p>
-          <p className="text-white/70 text-sm leading-relaxed">
+          <p className="text-[#4A3828] text-sm leading-relaxed">
             CTS™ is a structured methodology for helping organizations transform operational evidence, context, risk, engineering analysis, and institutional knowledge into decisions that can be explained, defended, executed, and continuously improved.
           </p>
         </div>
@@ -106,8 +106,8 @@ export default function InstituteCTSPage() {
       {/* What CTS™ Is / Is Not */}
       <section className="py-12 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white/[0.025] border border-white/[0.07] rounded-xl p-6">
-            <h3 className="text-lg font-bold text-[#00FFE1] mb-4">CTS™ IS:</h3>
+          <div className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-xl p-6">
+            <h3 className="text-lg font-bold text-[#00C2A8] mb-4">CTS™ IS:</h3>
             <ul className="space-y-3">
               {[
                 'A structured thinking methodology',
@@ -116,15 +116,15 @@ export default function InstituteCTSPage() {
                 'Evidence-based and defensible by design',
                 'Scalable from single-site to enterprise',
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-white/70">
-                  <span className="text-[#00FFE1] mt-0.5">✓</span>
+                <li key={item} className="flex items-start gap-3 text-sm text-[#4A3828]">
+                  <span className="text-[#00C2A8] mt-0.5">✓</span>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="bg-white/[0.025] border border-white/[0.07] rounded-xl p-6">
-            <h3 className="text-lg font-bold text-white/60 mb-4">CTS™ IS NOT:</h3>
+          <div className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-xl p-6">
+            <h3 className="text-lg font-bold text-[#4A3828] mb-4">CTS™ IS NOT:</h3>
             <ul className="space-y-3">
               {[
                 'A software platform or tool',
@@ -133,8 +133,8 @@ export default function InstituteCTSPage() {
                 'Exclusive to facility management',
                 'A replacement for engineering judgment',
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-white/50">
-                  <span className="text-white/30 mt-0.5">✕</span>
+                <li key={item} className="flex items-start gap-3 text-sm text-[#4A3828]">
+                  <span className="text-[#6E5E34] mt-0.5">✕</span>
                   {item}
                 </li>
               ))}
@@ -145,30 +145,30 @@ export default function InstituteCTSPage() {
 
       {/* 6-Stage Methodology */}
       <section className="py-12 px-4 sm:px-6 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#2C1F0E] mb-4">
           The CTS™ Methodology — Six Stages of Structured Thinking
         </h2>
-        <p className="text-white/55 text-sm leading-relaxed max-w-2xl mb-10">
+        <p className="text-[#4A3828] text-sm leading-relaxed max-w-2xl mb-10">
           Each stage must be completed in sequence. The quality of each stage determines the defensibility of the final decision.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {stages.map((stage) => (
             <div
               key={stage.num}
-              className="bg-white/[0.025] border border-white/[0.07] rounded-xl p-6 hover:border-white/[0.14] hover:bg-white/[0.04] transition-all"
+              className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-xl p-6 hover:border-[#E2D8CC] hover:bg-[#EDE8E0] transition-all"
             >
               <div className="flex items-start justify-between mb-2">
-                <span className="text-4xl font-bold text-[#00FFE1]/30">{stage.num}</span>
+                <span className="text-4xl font-bold text-[#00C2A8]/30">{stage.num}</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Stage {stage.num} — {stage.name}</h3>
-              <p className="text-white/70 text-sm leading-relaxed mb-4">{stage.definition}</p>
+              <h3 className="text-xl font-bold text-[#2C1F0E] mb-2">Stage {stage.num} — {stage.name}</h3>
+              <p className="text-[#4A3828] text-sm leading-relaxed mb-4">{stage.definition}</p>
 
-              <div className="border-t border-white/[0.06] pt-4 mb-4">
-                <p className="text-[10px] uppercase tracking-[0.15em] text-white/30 font-bold mb-2">Required Inputs</p>
+              <div className="border-t border-[#E2D8CC] pt-4 mb-4">
+                <p className="text-[10px] uppercase tracking-[0.15em] text-[#6E5E34] font-bold mb-2">Required Inputs</p>
                 <ul className="space-y-1">
                   {stage.inputs.map((input) => (
-                    <li key={input} className="text-xs text-white/55 flex items-start gap-2">
-                      <span className="text-[#00FFE1]/50 mt-0.5">·</span>
+                    <li key={input} className="text-xs text-[#4A3828] flex items-start gap-2">
+                      <span className="text-[#00C2A8]/50 mt-0.5">·</span>
                       {input}
                     </li>
                   ))}
@@ -176,11 +176,11 @@ export default function InstituteCTSPage() {
               </div>
 
               <div className="mb-4">
-                <p className="text-[10px] uppercase tracking-[0.15em] text-white/30 font-bold mb-2">Required Outputs</p>
+                <p className="text-[10px] uppercase tracking-[0.15em] text-[#6E5E34] font-bold mb-2">Required Outputs</p>
                 <ul className="space-y-1">
                   {stage.outputs.map((output) => (
-                    <li key={output} className="text-xs text-white/55 flex items-start gap-2">
-                      <span className="text-[#00FFE1]/50 mt-0.5">·</span>
+                    <li key={output} className="text-xs text-[#4A3828] flex items-start gap-2">
+                      <span className="text-[#00C2A8]/50 mt-0.5">·</span>
                       {output}
                     </li>
                   ))}
@@ -198,23 +198,23 @@ export default function InstituteCTSPage() {
 
       {/* OI Lifecycle Section */}
       <section className="py-12 px-4 sm:px-6 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Operational Intelligence™ Lifecycle</h2>
-        <div className="bg-[#00FFE1]/[0.04] border border-[#00FFE1]/15 rounded-xl p-4 text-sm text-white/60 mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#2C1F0E] mb-6">Operational Intelligence™ Lifecycle</h2>
+        <div className="bg-[#00C2A8]/[0.04] border border-[#00C2A8]/15 rounded-xl p-4 text-sm text-[#4A3828] mb-8">
           The OI™ Lifecycle describes how operational data transforms into decision intelligence. Triangulation, synthesis, root cause analysis, and evidence correlation are analytical disciplines within the Analyze phase — not separate lifecycle stages.
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {oiStages.map((stage) => (
             <div
               key={stage.num}
-              className="bg-white/[0.025] border border-white/[0.07] rounded-xl p-4 hover:border-white/[0.14] hover:bg-white/[0.04] transition-all"
+              className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-xl p-4 hover:border-[#E2D8CC] hover:bg-[#EDE8E0] transition-all"
             >
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-6 h-6 rounded-full bg-[#00FFE1]/10 text-[#00FFE1] text-[10px] font-bold flex items-center justify-center">
+                <span className="w-6 h-6 rounded-full bg-[#00C2A8]/10 text-[#00C2A8] text-[10px] font-bold flex items-center justify-center">
                   {stage.num}
                 </span>
-                <span className="font-bold text-white text-sm">{stage.name}</span>
+                <span className="font-bold text-[#2C1F0E] text-sm">{stage.name}</span>
               </div>
-              <p className="text-xs text-white/55 leading-relaxed">{stage.desc}</p>
+              <p className="text-xs text-[#4A3828] leading-relaxed">{stage.desc}</p>
             </div>
           ))}
         </div>

@@ -22,7 +22,7 @@ export default function InstituteCourseDetailPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <p className="text-white/40 mb-4">Course not found.</p>
+          <p className="text-[#6E5E34] mb-4">Course not found.</p>
           <Link to="/institute/courses" className="text-[#00FFE1] text-sm hover:underline">← Back to courses</Link>
         </div>
       </div>
@@ -44,7 +44,7 @@ export default function InstituteCourseDetailPage() {
         {/* Back nav */}
         <button
           onClick={() => navigate('/institute/courses')}
-          className="flex items-center gap-2 text-white/40 hover:text-white text-sm mb-8 transition-colors"
+          className="flex items-center gap-2 text-[#6E5E34] hover:text-[#00C2A8] text-sm mb-8 transition-colors"
         >
           <ArrowLeft size={14} /> All Courses
         </button>
@@ -55,16 +55,16 @@ export default function InstituteCourseDetailPage() {
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#00FFE1]">
               Course {course.number}
             </span>
-            <span className="text-white/20">·</span>
-            <span className="text-[10px] text-white/40 uppercase tracking-wide">{course.domainLabel}</span>
+            <span className="text-[#7A6A55]">·</span>
+            <span className="text-[10px] text-[#6E5E34] uppercase tracking-wide">{course.domainLabel}</span>
             <Badge variant={course.badge}>{course.accessTier.charAt(0).toUpperCase() + course.accessTier.slice(1)}</Badge>
           </div>
 
-          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">{course.title}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-[#2C1F0E] mb-2">{course.title}</h1>
           <p className="text-[#00FFE1] font-medium mb-4">{course.subtitle}</p>
-          <p className="text-white/50 text-sm leading-relaxed mb-6">{course.description}</p>
+          <p className="text-[#4A3828] text-sm leading-relaxed mb-6">{course.description}</p>
 
-          <div className="flex flex-wrap gap-5 text-sm text-white/40 mb-6">
+          <div className="flex flex-wrap gap-5 text-sm text-[#6E5E34] mb-6">
             <span className="flex items-center gap-1.5"><Clock size={13} />{course.durationHours} hours</span>
             <span className="flex items-center gap-1.5"><BookOpen size={13} />{course.moduleCount} modules</span>
             {prereqCourse && (
@@ -83,7 +83,7 @@ export default function InstituteCourseDetailPage() {
             </Link>
           ) : (
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-white/30 text-sm">
+              <div className="flex items-center gap-2 text-[#6E5E34] text-sm">
                 <Lock size={14} />
                 <span>
                   Requires {course.accessTier.charAt(0).toUpperCase() + course.accessTier.slice(1)} membership
@@ -102,7 +102,7 @@ export default function InstituteCourseDetailPage() {
         <div className="grid md:grid-cols-3 gap-6">
           {/* Left — modules */}
           <div className="md:col-span-2">
-            <h2 className="text-white font-bold text-lg mb-4">Course Modules</h2>
+            <h2 className="text-[#2C1F0E] font-bold text-lg mb-4">Course Modules</h2>
             <div className="space-y-3">
               {modules.map((mod, idx) => (
                 <div
@@ -118,20 +118,20 @@ export default function InstituteCourseDetailPage() {
                       className={`flex-none w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold border ${
                         accessible
                           ? 'bg-[#00FFE1]/10 border-[#00FFE1]/20 text-[#00FFE1]'
-                          : 'bg-white/5 border-white/10 text-white/20'
+                          : 'bg-white/5 border-white/10 text-[#7A6A55]'
                       }`}
                     >
                       {mod.number}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className={`text-sm font-semibold leading-snug ${accessible ? 'text-white' : 'text-white/30'}`}>
+                      <p className={`text-sm font-semibold leading-snug ${accessible ? 'text-[#2C1F0E]' : 'text-[#6E5E34]'}`}>
                         {mod.title}
                       </p>
-                      <p className={`text-xs mt-0.5 ${accessible ? 'text-white/40' : 'text-white/20'}`}>
+                      <p className={`text-xs mt-0.5 ${accessible ? 'text-[#6E5E34]' : 'text-[#7A6A55]'}`}>
                         {mod.subtitle}
                       </p>
                     </div>
-                    <div className="flex items-center gap-3 text-xs text-white/30">
+                    <div className="flex items-center gap-3 text-xs text-[#6E5E34]">
                       <span className="flex items-center gap-1"><Clock size={11} />{mod.estimatedMinutes} min</span>
                       {accessible ? (
                         <Link
@@ -141,7 +141,7 @@ export default function InstituteCourseDetailPage() {
                           {idx === 0 ? 'Start' : 'View'} →
                         </Link>
                       ) : (
-                        <Lock size={11} className="text-white/20" />
+                        <Lock size={11} className="text-[#7A6A55]" />
                       )}
                     </div>
                   </div>
@@ -156,8 +156,8 @@ export default function InstituteCourseDetailPage() {
                   <Check size={12} className="text-[#00FFE1]" />
                 </div>
                 <div>
-                  <p className="text-sm text-white font-medium">Knowledge test after each module</p>
-                  <p className="text-xs text-white/40 mt-0.5">
+                  <p className="text-sm text-[#2C1F0E] font-medium">Knowledge test after each module</p>
+                  <p className="text-xs text-[#6E5E34] mt-0.5">
                     Pass at 70% or higher to unlock the next module. Retakes allowed. Results saved to your profile.
                   </p>
                 </div>
@@ -171,11 +171,11 @@ export default function InstituteCourseDetailPage() {
             <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-5">
               <div className="flex items-center gap-2 mb-4">
                 <Target size={14} className="text-[#c9a96e]" />
-                <h3 className="text-white font-semibold text-sm">Learning Objectives</h3>
+                <h3 className="text-[#2C1F0E] font-semibold text-sm">Learning Objectives</h3>
               </div>
               <ul className="space-y-2.5">
                 {course.objectives.map((obj, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs text-white/50">
+                  <li key={i} className="flex items-start gap-2 text-xs text-[#4A3828]">
                     <span className="flex-none w-4 h-4 rounded bg-[#c9a96e]/10 text-[#c9a96e] text-[10px] flex items-center justify-center mt-0.5 font-bold">
                       {i + 1}
                     </span>
@@ -191,7 +191,7 @@ export default function InstituteCourseDetailPage() {
                 <Award size={14} className="text-[#c9a96e]" />
                 <h3 className="text-[#c9a96e] font-semibold text-sm">Certification Track</h3>
               </div>
-              <p className="text-xs text-white/40 mb-3">
+              <p className="text-xs text-[#6E5E34] mb-3">
                 Complete all 7 courses to unlock the CTS™ Practitioner Certification Exam.
               </p>
               <div className="flex items-center gap-1">
@@ -202,15 +202,15 @@ export default function InstituteCourseDetailPage() {
                   />
                 ))}
               </div>
-              <p className="text-[10px] text-white/30 mt-2">Course {course.number} of 7</p>
+              <p className="text-[10px] text-[#6E5E34] mt-2">Course {course.number} of 7</p>
             </div>
 
             {/* Next course */}
             {nextCourse && !nextCourse.isCertificationExam && (
               <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-4">
-                <p className="text-[10px] uppercase tracking-widest text-white/30 mb-2">Up Next</p>
-                <p className="text-sm font-semibold text-white">{nextCourse.title}</p>
-                <p className="text-xs text-white/40 mt-1">{nextCourse.domainLabel}</p>
+                <p className="text-[10px] uppercase tracking-widest text-[#6E5E34] mb-2">Up Next</p>
+                <p className="text-sm font-semibold text-[#2C1F0E]">{nextCourse.title}</p>
+                <p className="text-xs text-[#6E5E34] mt-1">{nextCourse.domainLabel}</p>
                 <Link
                   to={`/institute/courses/${nextCourse.id}`}
                   className="flex items-center gap-1 text-[#00FFE1] text-xs mt-3 hover:underline"

@@ -9,8 +9,8 @@ const tiers = [
     name: 'Explorer',
     price: 'Free',
     priceDetail: null,
-    cardStyle: 'border border-white/[0.07]',
-    badgeStyle: 'bg-white/5 text-white/40 border border-white/10',
+    cardStyle: 'border border-[#E2D8CC]',
+    badgeStyle: 'bg-white/5 text-[#6E5E34] border border-white/10',
     popular: false,
     founding: false,
     features: [
@@ -21,7 +21,7 @@ const tiers = [
       'Standards previews (first 10 pages)',
     ],
     cta: 'Start Free',
-    ctaStyle: 'border border-[#00FFE1]/40 text-[#00FFE1] hover:bg-[#00FFE1]/10',
+    ctaStyle: 'border border-[#00C2A8]/40 text-[#00C2A8] hover:bg-[#00C2A8]/10',
     ctaLink: '/institute/membership/explorer',
   },
   {
@@ -29,8 +29,8 @@ const tiers = [
     name: 'Professional',
     price: '$19/mo',
     priceDetail: 'or $199/year',
-    cardStyle: 'border border-[#00FFE1]/25',
-    badgeStyle: 'bg-[#00FFE1]/10 text-[#00FFE1] border border-[#00FFE1]/20',
+    cardStyle: 'border border-[#00C2A8]/25',
+    badgeStyle: 'bg-[#00C2A8]/10 text-[#00C2A8] border border-[#00C2A8]/20',
     popular: false,
     founding: false,
     features: [
@@ -42,7 +42,7 @@ const tiers = [
       'Member profile + contribution history',
     ],
     cta: 'Join Professional',
-    ctaStyle: 'bg-[#00FFE1] text-black font-bold hover:bg-[#00FFE1]/90',
+    ctaStyle: 'bg-[#00C2A8] text-black font-bold hover:bg-[#00C2A8]/90',
     ctaLink: '/institute/membership/professional',
   },
   {
@@ -50,8 +50,8 @@ const tiers = [
     name: 'Practitioner',
     price: '$49/mo',
     priceDetail: 'or $499/year',
-    cardStyle: 'border border-[#c9a96e]/40 bg-[#c9a96e]/[0.02]',
-    badgeStyle: 'bg-[#c9a96e]/10 text-[#c9a96e] border border-[#c9a96e]/20',
+    cardStyle: 'border border-[#D4AF57]/50 bg-[#D4AF57]/[0.02]',
+    badgeStyle: 'bg-[#D4AF57]/10 text-[#D4AF57] border border-[#D4AF57]/25',
     popular: true,
     founding: false,
     features: [
@@ -64,7 +64,7 @@ const tiers = [
       'Practitioner designation on profile',
     ],
     cta: 'Join Practitioner',
-    ctaStyle: 'border border-[#c9a96e]/40 text-[#c9a96e] hover:bg-[#c9a96e]/10',
+    ctaStyle: 'border border-[#D4AF57]/50 text-[#D4AF57] hover:bg-[#D4AF57]/10',
     ctaLink: '/institute/membership/practitioner',
   },
   {
@@ -73,7 +73,7 @@ const tiers = [
     price: 'Custom Pricing',
     priceDetail: null,
     cardStyle: 'bg-[#0d1b3e]/60 border border-[#0d1b3e]',
-    badgeStyle: 'bg-[#0d1b3e] text-white/60 border border-white/10',
+    badgeStyle: 'bg-[#0d1b3e] text-[#4A3828] border border-white/10',
     popular: false,
     founding: false,
     features: [
@@ -86,7 +86,7 @@ const tiers = [
       'OI platform integration (coming soon)',
     ],
     cta: 'Contact for Pricing',
-    ctaStyle: 'border border-white/20 text-white/60 hover:text-white hover:border-white/40',
+    ctaStyle: 'border border-white/20 text-[#4A3828] hover:text-[#00C2A8] hover:border-white/40',
     ctaLink: '/institute/contact',
   },
   {
@@ -95,7 +95,7 @@ const tiers = [
     price: 'Limited — 12 spots left',
     priceDetail: 'Locked at Practitioner pricing forever',
     cardStyle: 'bg-gradient-to-br from-[#c9a96e]/[0.08] to-[#00FFE1]/[0.04] border border-[#c9a96e]/30',
-    badgeStyle: 'bg-[#c9a96e]/15 text-[#c9a96e] border border-[#c9a96e]/30',
+    badgeStyle: 'bg-[#D4AF57]/15 text-[#D4AF57] border border-[#c9a96e]/30',
     popular: false,
     founding: true,
     features: [
@@ -107,7 +107,7 @@ const tiers = [
       'Recognition in CTS-STD-001 acknowledgements',
     ],
     cta: 'Claim Founding Member',
-    ctaStyle: 'bg-[#c9a96e] text-black font-bold hover:bg-[#c9a96e]/90',
+    ctaStyle: 'bg-[#D4AF57] text-black font-bold hover:bg-[#D4AF57]/90',
     ctaLink: '/institute/membership/founding',
   },
 ]
@@ -138,12 +138,12 @@ export default function InstituteMembershipPage() {
   const bottomTiers = tiers.filter((t) => t.founding || t.id === 'enterprise')
 
   return (
-    <div className="bg-[#04080f] text-white">
+    <div className="bg-[#FAF9F1] text-[#2C1F0E]">
       {/* Hero */}
       <section className="py-16 px-4 sm:px-6 max-w-7xl mx-auto text-center">
-        <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-3">Membership</p>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Operational Intelligence Institute™ Membership</h1>
-        <p className="text-white/55 text-sm leading-relaxed max-w-xl mx-auto">
+        <p className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF57] font-bold mb-3">Membership</p>
+        <h1 className="text-3xl md:text-4xl font-bold text-[#2C1F0E] mb-4">Operational Intelligence Institute™ Membership</h1>
+        <p className="text-[#4A3828] text-sm leading-relaxed max-w-xl mx-auto">
           Choose the level of access that fits your professional journey.
         </p>
       </section>
@@ -158,7 +158,7 @@ export default function InstituteMembershipPage() {
             >
               {tier.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-emerald-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="bg-emerald-500 text-[#2C1F0E] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                     Most Popular
                   </span>
                 </div>
@@ -171,16 +171,16 @@ export default function InstituteMembershipPage() {
               </div>
 
               <div className="mb-6">
-                <div className="text-2xl font-bold text-white">{tier.price}</div>
+                <div className="text-2xl font-bold text-[#2C1F0E]">{tier.price}</div>
                 {tier.priceDetail && (
-                  <div className="text-xs text-white/35 mt-0.5">{tier.priceDetail}</div>
+                  <div className="text-xs text-[#6E5E34] mt-0.5">{tier.priceDetail}</div>
                 )}
               </div>
 
               <ul className="space-y-2.5 flex-1 mb-6">
                 {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5 text-sm text-white/60">
-                    <Check className="w-3.5 h-3.5 text-[#00FFE1] mt-0.5 shrink-0" />
+                  <li key={feature} className="flex items-start gap-2.5 text-sm text-[#4A3828]">
+                    <Check className="w-3.5 h-3.5 text-[#00C2A8] mt-0.5 shrink-0" />
                     {feature}
                   </li>
                 ))}
@@ -210,7 +210,7 @@ export default function InstituteMembershipPage() {
             >
               {tier.founding && (
                 <div className="absolute top-4 right-4">
-                  <span className="bg-red-500/80 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                  <span className="bg-red-500/80 text-[#2C1F0E] text-[10px] font-bold px-2.5 py-0.5 rounded-full">
                     Limited — 12 spots left
                   </span>
                 </div>
@@ -223,16 +223,16 @@ export default function InstituteMembershipPage() {
               </div>
 
               <div className="mb-6">
-                <div className="text-2xl font-bold text-white">{tier.price}</div>
+                <div className="text-2xl font-bold text-[#2C1F0E]">{tier.price}</div>
                 {tier.priceDetail && (
-                  <div className="text-xs text-white/35 mt-0.5">{tier.priceDetail}</div>
+                  <div className="text-xs text-[#6E5E34] mt-0.5">{tier.priceDetail}</div>
                 )}
               </div>
 
               <ul className="space-y-2.5 flex-1 mb-6">
                 {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5 text-sm text-white/60">
-                    <Check className="w-3.5 h-3.5 text-[#00FFE1] mt-0.5 shrink-0" />
+                  <li key={feature} className="flex items-start gap-2.5 text-sm text-[#4A3828]">
+                    <Check className="w-3.5 h-3.5 text-[#00C2A8] mt-0.5 shrink-0" />
                     {feature}
                   </li>
                 ))}
@@ -254,27 +254,27 @@ export default function InstituteMembershipPage() {
 
       {/* FAQ */}
       <section className="px-4 sm:px-6 max-w-7xl mx-auto pb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold text-[#2C1F0E] mb-6">Frequently Asked Questions</h2>
         <div className="space-y-3 max-w-2xl">
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="bg-white/[0.025] border border-white/[0.07] rounded-xl overflow-hidden"
+              className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                 className="w-full flex items-center justify-between p-5 text-left"
               >
-                <span className="font-medium text-white text-sm">{faq.q}</span>
+                <span className="font-medium text-[#2C1F0E] text-sm">{faq.q}</span>
                 {openFaq === idx ? (
-                  <ChevronUp className="w-4 h-4 text-white/40 shrink-0" />
+                  <ChevronUp className="w-4 h-4 text-[#6E5E34] shrink-0" />
                 ) : (
-                  <ChevronDown className="w-4 h-4 text-white/40 shrink-0" />
+                  <ChevronDown className="w-4 h-4 text-[#6E5E34] shrink-0" />
                 )}
               </button>
               {openFaq === idx && (
                 <div className="px-5 pb-5">
-                  <p className="text-white/55 text-sm leading-relaxed">{faq.a}</p>
+                  <p className="text-[#4A3828] text-sm leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </div>

@@ -37,7 +37,7 @@ export default function InstituteOIPage() {
             Operational Intelligence™ is not a software product or a reporting dashboard. It is a professional discipline — a structured, repeatable approach to how organizations gather evidence, make decisions, document reasoning, and build institutional knowledge that survives beyond any individual.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link to="/institute/courses" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-[13px] font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
+            <Link to="/institute/courses" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-[13px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
               Start Learning <ArrowRight className="h-4 w-4" />
             </Link>
             <Link to="/institute/bok" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-[13px] font-bold border transition-all hover:bg-black/[0.04]" style={{ borderColor: C.border, color: C.darkBrown }}>
@@ -119,8 +119,8 @@ export default function InstituteOIPage() {
               { label: 'Get certified', href: '/institute/certifications', cta: 'Certifications' },
             ].map(item => (
               <Link key={item.label} to={item.href} className="group flex flex-col gap-2 p-6 rounded-xl border text-center transition-all hover:bg-white/10" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
-                <p className="text-[12px] opacity-50 text-white">{item.label}</p>
-                <p className="font-bold text-white flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
+                <p className="text-[12px] opacity-50 text-[#2C1F0E]">{item.label}</p>
+                <p className="font-bold text-[#2C1F0E] flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
                   {item.cta} <ChevronRight className="h-4 w-4" />
                 </p>
               </Link>

@@ -82,15 +82,15 @@ export default function DownloadsPage() {
   }
 
   return (
-    <div className="bg-[#04080f]">
+    <div className="bg-[#FAF9F1]">
       {/* Hero */}
-      <section className="py-20 border-b border-white/[0.06]">
+      <section className="py-20 border-b border-[#E2D8CC]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-4">Free Resources</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5">
-            Downloads <span className="text-[#c9a96e]">&amp; Resources</span>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF57] font-bold mb-4">Free Resources</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#2C1F0E] mb-5">
+            Downloads <span className="text-[#D4AF57]">&amp; Resources</span>
           </h1>
-          <p className="text-white/60 text-lg leading-relaxed">
+          <p className="text-[#4A3828] text-lg leading-relaxed">
             Free practitioner resources, executive guides, and reference documents from the Operational Intelligence Institute™. All downloads are free — provide your email to receive your copy and stay informed on new releases.
           </p>
         </div>
@@ -103,18 +103,18 @@ export default function DownloadsPage() {
             {downloads.map((dl) => (
               <div
                 key={dl.title}
-                className="bg-white/[0.025] border border-white/[0.06] rounded-xl p-6 hover:border-white/[0.12] transition-all duration-300 flex flex-col"
+                className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-xl p-6 hover:border-[#E2D8CC] transition-all duration-300 flex flex-col"
               >
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center shrink-0">
-                    <FileText size={18} className="text-[#c9a96e]" />
+                  <div className="w-10 h-10 rounded-lg bg-[#D4AF57]/10 border border-[#D4AF57]/25 flex items-center justify-center shrink-0">
+                    <FileText size={18} className="text-[#D4AF57]" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-white font-bold text-sm leading-snug">{dl.title}</h3>
+                    <h3 className="text-[#2C1F0E] font-bold text-sm leading-snug">{dl.title}</h3>
                   </div>
                 </div>
 
-                <p className="text-white/50 text-sm leading-relaxed mb-4 flex-1">{dl.description}</p>
+                <p className="text-[#4A3828] text-sm leading-relaxed mb-4 flex-1">{dl.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="gray">PDF</Badge>
@@ -123,7 +123,7 @@ export default function DownloadsPage() {
                 </div>
 
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-white/30 text-xs">{dl.audience}</span>
+                  <span className="text-[#6E5E34] text-xs">{dl.audience}</span>
                   <Button size="sm" onClick={() => handleDownloadClick(dl.title)}>
                     <Download size={12} /> Download Free
                   </Button>
@@ -141,22 +141,22 @@ export default function DownloadsPage() {
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={() => setModalOpen(false)}
           />
-          <div className="relative bg-[#04080f] border border-white/[0.12] rounded-2xl p-8 w-full max-w-md shadow-2xl">
+          <div className="relative bg-[#FAF9F1] border border-[#E2D8CC] rounded-2xl p-8 w-full max-w-md shadow-2xl">
             <button
               onClick={() => setModalOpen(false)}
-              className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
+              className="absolute top-4 right-4 text-[#6E5E34] hover:text-[#00C2A8] transition-colors"
             >
               <X size={18} />
             </button>
 
             {!submitted ? (
               <>
-                <div className="w-12 h-12 rounded-xl bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center mb-5">
-                  <Download size={20} className="text-[#c9a96e]" />
+                <div className="w-12 h-12 rounded-xl bg-[#D4AF57]/10 border border-[#D4AF57]/25 flex items-center justify-center mb-5">
+                  <Download size={20} className="text-[#D4AF57]" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Download Free</h3>
-                <p className="text-white/50 text-sm mb-1">{selectedDownload}</p>
-                <p className="text-white/30 text-xs mb-6">
+                <h3 className="text-xl font-bold text-[#2C1F0E] mb-2">Download Free</h3>
+                <p className="text-[#4A3828] text-sm mb-1">{selectedDownload}</p>
+                <p className="text-[#6E5E34] text-xs mb-6">
                   Enter your email to receive your download link and stay informed on new Operational Intelligence Institute™ resources.
                 </p>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -166,25 +166,25 @@ export default function DownloadsPage() {
                     placeholder="your@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#00FFE1]/40"
+                    className="w-full bg-[#EDE8E0] border border-[#E2D8CC] rounded-lg px-4 py-3 text-sm text-[#2C1F0E] placeholder-[#7A6A55] focus:outline-none focus:border-[#00C2A8]/40"
                   />
                   <Button type="submit" className="w-full">
                     Send Me the Download <ArrowRight size={14} />
                   </Button>
                 </form>
-                <p className="text-white/25 text-xs mt-4 text-center">
+                <p className="text-[#7A6A55] text-xs mt-4 text-center">
                   We respect your privacy. Unsubscribe anytime.
                 </p>
               </>
             ) : (
               <div className="text-center py-4">
-                <div className="w-16 h-16 rounded-full bg-[#00FFE1]/10 border border-[#00FFE1]/20 flex items-center justify-center mx-auto mb-5">
-                  <Download size={28} className="text-[#00FFE1]" />
+                <div className="w-16 h-16 rounded-full bg-[#00C2A8]/10 border border-[#00C2A8]/20 flex items-center justify-center mx-auto mb-5">
+                  <Download size={28} className="text-[#00C2A8]" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Check Your Inbox</h3>
-                <p className="text-white/50 text-sm mb-1">Your download link has been sent to</p>
-                <p className="text-[#00FFE1] font-medium text-sm mb-4">{email}</p>
-                <p className="text-white/30 text-xs">
+                <h3 className="text-xl font-bold text-[#2C1F0E] mb-2">Check Your Inbox</h3>
+                <p className="text-[#4A3828] text-sm mb-1">Your download link has been sent to</p>
+                <p className="text-[#00C2A8] font-medium text-sm mb-4">{email}</p>
+                <p className="text-[#6E5E34] text-xs">
                   Can't find it? Check your spam folder or contact us at institute@nexumsuum.com
                 </p>
               </div>

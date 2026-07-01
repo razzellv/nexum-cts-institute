@@ -31,7 +31,7 @@ export default function InstituteLoginPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="w-5 h-5 border-2 border-[#00FFE1]/30 border-t-[#00FFE1] rounded-full animate-spin" />
+        <div className="w-5 h-5 border-2 border-[#00C2A8]/30 border-t-[#00FFE1] rounded-full animate-spin" />
       </div>
     );
   }
@@ -41,21 +41,21 @@ export default function InstituteLoginPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="flex items-center justify-center gap-2.5 mb-8">
-          <div className="w-9 h-9 rounded-xl bg-[#00FFE1]/10 border border-[#00FFE1]/20 flex items-center justify-center">
-            <BookOpen className="h-4.5 w-4.5 text-[#00FFE1]" size={18} />
+          <div className="w-9 h-9 rounded-xl bg-[#00C2A8]/10 border border-[#00C2A8]/20 flex items-center justify-center">
+            <BookOpen className="h-4.5 w-4.5 text-[#00C2A8]" size={18} />
           </div>
           <div>
-            <p className="text-sm font-bold text-white leading-none">
-              Operational Intelligence Institute<span className="text-[#c9a96e]">™</span>
+            <p className="text-sm font-bold text-[#2C1F0E] leading-none">
+              Operational Intelligence Institute<span className="text-[#D4AF57]">™</span>
             </p>
-            <p className="text-[10px] text-white/30">Member Sign In</p>
+            <p className="text-[10px] text-[#6E5E34]">Member Sign In</p>
           </div>
         </div>
 
         {/* Card */}
-        <div className="bg-white/[0.025] border border-white/[0.07] rounded-2xl p-8">
-          <h1 className="text-xl font-bold text-white mb-1 text-center">Welcome back</h1>
-          <p className="text-sm text-white/40 text-center mb-7">Sign in to your institute account</p>
+        <div className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-2xl p-8">
+          <h1 className="text-xl font-bold text-[#2C1F0E] mb-1 text-center">Welcome back</h1>
+          <p className="text-sm text-[#6E5E34] text-center mb-7">Sign in to your institute account</p>
 
           {error && (
             <div className="flex items-start gap-2.5 bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-5">
@@ -66,40 +66,40 @@ export default function InstituteLoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs text-white/50 mb-1.5 font-medium uppercase tracking-wide">
+              <label className="block text-xs text-[#4A3828] mb-1.5 font-medium uppercase tracking-wide">
                 Email address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/25" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#7A6A55]" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg pl-9 pr-4 py-2.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#00FFE1]/40 focus:bg-white/[0.06] transition-colors"
+                  className="w-full bg-[#EDE8E0] border border-[#E2D8CC] rounded-lg pl-9 pr-4 py-2.5 text-sm text-[#2C1F0E] placeholder:text-[#7A6A55] focus:outline-none focus:border-[#00C2A8]/40 focus:bg-white/[0.06] transition-colors"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs text-white/50 mb-1.5 font-medium uppercase tracking-wide">
+              <label className="block text-xs text-[#4A3828] mb-1.5 font-medium uppercase tracking-wide">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/25" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#7A6A55]" />
                 <input
                   type={showPass ? 'text' : 'password'}
                   required
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg pl-9 pr-10 py-2.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#00FFE1]/40 focus:bg-white/[0.06] transition-colors"
+                  className="w-full bg-[#EDE8E0] border border-[#E2D8CC] rounded-lg pl-9 pr-10 py-2.5 text-sm text-[#2C1F0E] placeholder:text-[#7A6A55] focus:outline-none focus:border-[#00C2A8]/40 focus:bg-white/[0.06] transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPass(v => !v)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/25 hover:text-white/50 transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#7A6A55] hover:text-[#4A3828] transition-colors"
                 >
                   {showPass ? <EyeOff size={15} /> : <Eye size={15} />}
                 </button>
@@ -118,18 +118,18 @@ export default function InstituteLoginPage() {
           </form>
 
           <div className="mt-6 text-center space-y-2">
-            <p className="text-sm text-white/35">
+            <p className="text-sm text-[#6E5E34]">
               Don't have an account?{' '}
-              <Link to="/institute/signup" className="text-[#00FFE1] hover:underline font-medium">
+              <Link to="/institute/signup" className="text-[#00C2A8] hover:underline font-medium">
                 Join free
               </Link>
             </p>
           </div>
         </div>
 
-        <p className="text-center text-[11px] text-white/20 mt-6">
+        <p className="text-center text-[11px] text-[#7A6A55] mt-6">
           Operational Intelligence Institute™ membership is separate from the OI Platform.{' '}
-          <Link to="/hub" className="hover:text-white/40 transition-colors">OI Platform login →</Link>
+          <Link to="/hub" className="hover:text-[#6E5E34] transition-colors">OI Platform login →</Link>
         </p>
       </div>
     </div>

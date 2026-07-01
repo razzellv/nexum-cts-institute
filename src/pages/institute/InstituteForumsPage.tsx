@@ -102,43 +102,43 @@ const forums = [
 ]
 
 function activityColor(activity: string) {
-  if (activity === 'Very Active') return 'text-[#00FFE1]'
+  if (activity === 'Very Active') return 'text-[#00C2A8]'
   if (activity === 'Growing') return 'text-green-400'
-  if (activity === 'Active') return 'text-white/60'
-  return 'text-white/40'
+  if (activity === 'Active') return 'text-[#4A3828]'
+  return 'text-[#6E5E34]'
 }
 
 export default function ForumsPage() {
   return (
-    <div className="bg-[#04080f]">
+    <div className="bg-[#FAF9F1]">
       {/* Hero */}
-      <section className="py-20 border-b border-white/[0.06]">
+      <section className="py-20 border-b border-[#E2D8CC]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-4">Community</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5">
-            Discussion <span className="text-[#c9a96e]">Forums</span>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF57] font-bold mb-4">Community</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#2C1F0E] mb-5">
+            Discussion <span className="text-[#D4AF57]">Forums</span>
           </h1>
-          <p className="text-white/60 text-lg leading-relaxed">
+          <p className="text-[#4A3828] text-lg leading-relaxed">
             Practitioner-led discussion across 12 operational domains. Ask questions, share case studies, and engage with peers applying Operational Intelligence™ in real environments.
           </p>
         </div>
       </section>
 
       {/* Stats Bar */}
-      <section className="border-b border-white/[0.06] py-5">
+      <section className="border-b border-[#E2D8CC] py-5">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-6">
             <div className="flex items-center gap-2">
-              <Users size={14} className="text-[#00FFE1]" />
-              <span className="text-sm text-white/60"><span className="text-white font-semibold">2,847</span> members</span>
+              <Users size={14} className="text-[#00C2A8]" />
+              <span className="text-sm text-[#4A3828]"><span className="text-[#2C1F0E] font-semibold">2,847</span> members</span>
             </div>
             <div className="flex items-center gap-2">
-              <MessageSquare size={14} className="text-[#00FFE1]" />
-              <span className="text-sm text-white/60"><span className="text-white font-semibold">15,877</span> posts</span>
+              <MessageSquare size={14} className="text-[#00C2A8]" />
+              <span className="text-sm text-[#4A3828]"><span className="text-[#2C1F0E] font-semibold">15,877</span> posts</span>
             </div>
             <div className="flex items-center gap-2">
-              <TrendingUp size={14} className="text-[#00FFE1]" />
-              <span className="text-sm text-white/60"><span className="text-white font-semibold">342</span> new posts this week</span>
+              <TrendingUp size={14} className="text-[#00C2A8]" />
+              <span className="text-sm text-[#4A3828]"><span className="text-[#2C1F0E] font-semibold">342</span> new posts this week</span>
             </div>
           </div>
         </div>
@@ -151,13 +151,13 @@ export default function ForumsPage() {
             {forums.map((forum) => (
               <div
                 key={forum.name}
-                className="bg-white/[0.025] border border-white/[0.06] rounded-xl p-6 hover:border-white/[0.12] transition-all duration-300"
+                className="bg-[#F3F0EA] border border-[#E2D8CC] rounded-xl p-6 hover:border-[#E2D8CC] transition-all duration-300"
               >
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-white font-bold">{forum.name}</h3>
+                    <h3 className="text-[#2C1F0E] font-bold">{forum.name}</h3>
                     {forum.memberOnly && (
-                      <Lock size={12} className="text-[#c9a96e]" />
+                      <Lock size={12} className="text-[#D4AF57]" />
                     )}
                   </div>
                   <span className={`text-xs font-medium shrink-0 ${activityColor(forum.activity)}`}>
@@ -165,10 +165,10 @@ export default function ForumsPage() {
                   </span>
                 </div>
 
-                <p className="text-white/50 text-sm leading-relaxed mb-4">{forum.description}</p>
+                <p className="text-[#4A3828] text-sm leading-relaxed mb-4">{forum.description}</p>
 
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4 text-xs text-white/30">
+                  <div className="flex items-center gap-4 text-xs text-[#6E5E34]">
                     <span>{forum.topics} topics</span>
                     <span>{forum.posts.toLocaleString()} posts</span>
                   </div>
@@ -185,16 +185,16 @@ export default function ForumsPage() {
       </section>
 
       {/* Membership CTA */}
-      <section className="border-t border-white/[0.06] py-16">
+      <section className="border-t border-[#E2D8CC] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a96e]/[0.06] border border-[#c9a96e]/20 rounded-full mb-5">
-            <Lock size={12} className="text-[#c9a96e]" />
-            <span className="text-[#c9a96e] text-xs font-bold uppercase tracking-wider">Member-Only Forums</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4AF57]/[0.06] border border-[#D4AF57]/25 rounded-full mb-5">
+            <Lock size={12} className="text-[#D4AF57]" />
+            <span className="text-[#D4AF57] text-xs font-bold uppercase tracking-wider">Member-Only Forums</span>
           </div>
-          <h2 className="text-2xl font-bold text-white mb-3">
+          <h2 className="text-2xl font-bold text-[#2C1F0E] mb-3">
             Unlock All 12 Forum Categories
           </h2>
-          <p className="text-white/50 text-sm mb-6 leading-relaxed">
+          <p className="text-[#4A3828] text-sm mb-6 leading-relaxed">
             Some forums require Operational Intelligence Institute™ membership. Join free to access open forums, or upgrade to unlock all member-only discussions including Knowledge Preservation, Decision Defensibility™, and Government & GovCon.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

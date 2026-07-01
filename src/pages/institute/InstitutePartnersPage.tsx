@@ -51,7 +51,7 @@ export default function InstitutePartnersPage() {
             <p className="text-base leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: C.muted }}>
               The Institute's partner network is being established in 2026. We are actively seeking aligned organizations in academia, government, professional associations, and industry to build the foundation for Operational Intelligence™ as a globally recognized discipline.
             </p>
-            <Link to="/institute/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
+            <Link to="/institute/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
               Inquire About Partnership <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

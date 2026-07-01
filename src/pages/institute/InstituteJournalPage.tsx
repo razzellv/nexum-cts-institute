@@ -49,7 +49,7 @@ export default function InstituteJournalPage() {
               <form onSubmit={e => { e.preventDefault(); if (email) setSubmitted(true); }} className="flex gap-2 max-w-sm mx-auto">
                 <input type="email" required placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)}
                   className="flex-1 px-4 py-2.5 rounded-xl text-sm border focus:outline-none" style={{ background: C.beige, borderColor: C.border, color: C.darkBrown }} />
-                <button type="submit" className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-[13px] font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
+                <button type="submit" className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-[13px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
                   <Bell className="h-4 w-4" /> Notify Me
                 </button>
               </form>

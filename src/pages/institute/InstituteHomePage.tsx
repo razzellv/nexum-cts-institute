@@ -174,7 +174,7 @@ export default function InstituteHomePage() {
             {STATS.map(s => (
               <div key={s.label} className="text-center">
                 <p className="text-3xl font-bold mb-1" style={{ fontFamily: 'Playfair Display, serif', color: C.gold }}>{s.value}</p>
-                <p className="text-[12px] opacity-50 uppercase tracking-widest text-white">{s.label}</p>
+                <p className="text-[12px] opacity-50 uppercase tracking-widest text-[#2C1F0E]">{s.label}</p>
               </div>
             ))}
           </div>
@@ -271,7 +271,7 @@ export default function InstituteHomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
             {CERT_PATHS.map((c, i) => (
               <div key={c.title} className="flex items-center gap-4 p-5 rounded-xl border" style={{ background: C.cream, borderColor: C.border }}>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-[13px] font-bold shrink-0" style={{ background: c.color }}>{i + 1}</div>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[#2C1F0E] text-[13px] font-bold shrink-0" style={{ background: c.color }}>{i + 1}</div>
                 <div>
                   <p className="text-[13px] font-bold" style={{ color: C.darkBrown }}>{c.title}</p>
                   <p className="text-[11px] uppercase tracking-wider mt-0.5" style={{ color: C.muted }}>{c.level}</p>
@@ -404,11 +404,11 @@ export default function InstituteHomePage() {
       {/* ── CTA ───────────────────────────────────────────────────────────────── */}
       <section className="py-24" style={{ background: C.darkBrown }}>
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-[11px] uppercase tracking-[0.2em] font-bold mb-4 opacity-60 text-white">Join the Institute</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-5 text-white" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <p className="text-[11px] uppercase tracking-[0.2em] font-bold mb-4 opacity-60 text-[#2C1F0E]">Join the Institute</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-5 text-[#2C1F0E]" style={{ fontFamily: 'Playfair Display, serif' }}>
             Become Part of the<br /><span style={{ color: C.gold }}>Professional Community</span>
           </h2>
-          <p className="text-base leading-relaxed mb-10 opacity-60 text-white max-w-2xl mx-auto">
+          <p className="text-base leading-relaxed mb-10 opacity-60 text-[#2C1F0E] max-w-2xl mx-auto">
             Join thousands of professionals advancing Operational Intelligence™ through research, standards, education, and community. Membership starts free.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

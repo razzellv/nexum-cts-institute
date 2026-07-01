@@ -65,7 +65,7 @@ export default function InstituteExamPage() {
     return (
       <div className="min-h-screen flex items-center justify-center px-4 py-16">
         <div className="max-w-lg w-full">
-          <button onClick={() => navigate('/institute/courses')} className="flex items-center gap-2 text-white/40 hover:text-white text-sm mb-8 transition-colors">
+          <button onClick={() => navigate('/institute/courses')} className="flex items-center gap-2 text-[#6E5E34] hover:text-[#00C2A8] text-sm mb-8 transition-colors">
             <ArrowLeft size={14} /> Back to Courses
           </button>
 
@@ -74,8 +74,8 @@ export default function InstituteExamPage() {
               <Award size={28} className="text-[#c9a96e]" />
             </div>
             <p className="text-[10px] uppercase tracking-widest text-[#c9a96e] font-bold mb-2">Course 8</p>
-            <h1 className="text-2xl font-bold text-white mb-2">CTS™ Practitioner Certification Exam</h1>
-            <p className="text-white/50 text-sm mb-6">Formal evaluation submitted to OI™ HQ</p>
+            <h1 className="text-2xl font-bold text-[#2C1F0E] mb-2">CTS™ Practitioner Certification Exam</h1>
+            <p className="text-[#4A3828] text-sm mb-6">Formal evaluation submitted to OI™ HQ</p>
 
             <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-5 mb-6 text-left space-y-3">
               {[
@@ -86,8 +86,8 @@ export default function InstituteExamPage() {
                 ['Certificate', 'CTS™ Certified Practitioner™ issued upon passing evaluation'],
               ].map(([label, value]) => (
                 <div key={label} className="flex gap-3 text-sm">
-                  <span className="text-white/40 min-w-[110px] shrink-0">{label}</span>
-                  <span className="text-white/70">{value}</span>
+                  <span className="text-[#6E5E34] min-w-[110px] shrink-0">{label}</span>
+                  <span className="text-[#4A3828]">{value}</span>
                 </div>
               ))}
             </div>
@@ -98,7 +98,7 @@ export default function InstituteExamPage() {
               </Button>
             ) : (
               <div>
-                <p className="text-white/40 text-sm mb-4">
+                <p className="text-[#6E5E34] text-sm mb-4">
                   Exam eligibility requires Practitioner membership and completion of all 7 courses.
                 </p>
                 <Link
@@ -122,7 +122,7 @@ export default function InstituteExamPage() {
           <div className="bg-white/[0.025] border border-white/[0.07] rounded-2xl p-8">
             <div className="flex items-center gap-3 mb-6">
               <Shield size={20} className="text-[#00FFE1]" />
-              <h2 className="text-white font-bold text-lg">Before You Begin</h2>
+              <h2 className="text-[#2C1F0E] font-bold text-lg">Before You Begin</h2>
             </div>
             <ul className="space-y-3 mb-8">
               {[
@@ -132,13 +132,13 @@ export default function InstituteExamPage() {
                 'Results and formal evaluation are returned within 5 business days.',
                 'You may retake the exam once per 30-day period if you do not pass.',
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-white/60">
+                <li key={i} className="flex items-start gap-3 text-sm text-[#4A3828]">
                   <CheckCircle size={14} className="text-[#00FFE1] mt-0.5 shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="text-white/40 text-xs mb-6">
+            <p className="text-[#6E5E34] text-xs mb-6">
               By clicking Begin, you agree to the CTS™ Professional Honor Code and confirm this work is your own.
             </p>
             <Button variant="primary" size="md" onClick={() => setPhase('exam')}>
@@ -157,13 +157,13 @@ export default function InstituteExamPage() {
           <div className="w-20 h-20 rounded-2xl bg-[#00FFE1]/10 border border-[#00FFE1]/20 flex items-center justify-center mx-auto mb-6">
             <CheckCircle size={36} className="text-[#00FFE1]" />
           </div>
-          <h1 className="text-2xl font-bold text-white mb-3">Exam Submitted</h1>
-          <p className="text-white/50 text-sm mb-8 max-w-sm mx-auto">
+          <h1 className="text-2xl font-bold text-[#2C1F0E] mb-3">Exam Submitted</h1>
+          <p className="text-[#4A3828] text-sm mb-8 max-w-sm mx-auto">
             Your CTS™ Practitioner Certification Exam has been submitted to OI™ HQ for formal evaluation. You'll receive your results within 5 business days.
           </p>
           <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-5 mb-8 text-left">
-            <p className="text-sm text-white/70 mb-3">What happens next:</p>
-            <ul className="space-y-2 text-sm text-white/50">
+            <p className="text-sm text-[#4A3828] mb-3">What happens next:</p>
+            <ul className="space-y-2 text-sm text-[#4A3828]">
               <li className="flex items-start gap-2"><CheckCircle size={12} className="text-[#00FFE1] mt-0.5 shrink-0" />A CTS™ instructor reviews your submission in OI™ HQ</li>
               <li className="flex items-start gap-2"><CheckCircle size={12} className="text-[#00FFE1] mt-0.5 shrink-0" />You receive a scorecard showing your performance by domain</li>
               <li className="flex items-start gap-2"><CheckCircle size={12} className="text-[#00FFE1] mt-0.5 shrink-0" />On passing: your CTS™ Certified Practitioner™ certificate is generated</li>
@@ -189,9 +189,9 @@ export default function InstituteExamPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <p className="text-[10px] uppercase tracking-widest text-[#c9a96e] font-bold">CTS™ Practitioner Certification Exam</p>
-            <p className="text-white/40 text-sm mt-0.5">{answered} of {total} answered</p>
+            <p className="text-[#6E5E34] text-sm mt-0.5">{answered} of {total} answered</p>
           </div>
-          <div className="flex items-center gap-2 text-white/40 text-sm">
+          <div className="flex items-center gap-2 text-[#6E5E34] text-sm">
             <Clock size={13} />
             <span>~2 hours</span>
           </div>
@@ -211,18 +211,18 @@ export default function InstituteExamPage() {
             <div key={q.id} className="bg-white/[0.025] border border-white/[0.07] rounded-xl p-6">
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#00FFE1]">{q.domain}</span>
-                <span className="text-white/20 text-xs">·</span>
-                <span className="text-xs text-white/30">Q{idx + 1}</span>
+                <span className="text-[#7A6A55] text-xs">·</span>
+                <span className="text-xs text-[#6E5E34]">Q{idx + 1}</span>
               </div>
-              <p className="text-white font-medium text-base leading-relaxed mb-5">{q.question}</p>
+              <p className="text-[#2C1F0E] font-medium text-base leading-relaxed mb-5">{q.question}</p>
               <div className="space-y-2.5">
                 {q.options.map((opt, oi) => (
                   <label
                     key={oi}
                     className={`flex items-start gap-3 rounded-xl border p-4 text-sm cursor-pointer transition-all ${
                       answers[q.id] === oi
-                        ? 'border-[#00FFE1]/40 bg-[#00FFE1]/[0.06] text-white'
-                        : 'border-white/[0.06] bg-white/[0.02] text-white/60 hover:border-white/[0.12]'
+                        ? 'border-[#00FFE1]/40 bg-[#00FFE1]/[0.06] text-[#2C1F0E]'
+                        : 'border-white/[0.06] bg-white/[0.02] text-[#4A3828] hover:border-white/[0.12]'
                     }`}
                   >
                     <input
@@ -236,7 +236,7 @@ export default function InstituteExamPage() {
                     <span className={`flex-none w-5 h-5 rounded-full border flex items-center justify-center text-xs font-bold ${
                       answers[q.id] === oi
                         ? 'border-[#00FFE1] bg-[#00FFE1] text-black'
-                        : 'border-white/20 text-white/30'
+                        : 'border-white/20 text-[#6E5E34]'
                     }`}>
                       {String.fromCharCode(65 + oi)}
                     </span>
@@ -251,7 +251,7 @@ export default function InstituteExamPage() {
         {/* Submit */}
         <div className="mt-10 pt-8 border-t border-white/[0.05]">
           {answered < total && (
-            <p className="text-white/40 text-sm text-center mb-4">
+            <p className="text-[#6E5E34] text-sm text-center mb-4">
               {total - answered} question{total - answered !== 1 ? 's' : ''} remaining before you can submit.
             </p>
           )}
@@ -269,7 +269,7 @@ export default function InstituteExamPage() {
               )}
             </Button>
           </div>
-          <p className="text-center text-xs text-white/25 mt-3">
+          <p className="text-center text-xs text-[#7A6A55] mt-3">
             Submission is final. Review all answers before submitting.
           </p>
         </div>

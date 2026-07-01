@@ -122,9 +122,9 @@ export default function InstituteBOKPage() {
 
       <section className="py-16 border-t" style={{ background: C.darkBrown, borderColor: 'rgba(255,255,255,0.08)' }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-2xl font-bold mb-4 text-white" style={{ fontFamily: 'Playfair Display, serif' }}>Contribute to a Body of Knowledge</h2>
-          <p className="text-base opacity-60 text-white mb-8">Practitioners, researchers, and subject matter experts can contribute to BOK development through Institute committees, research submissions, and standards review processes.</p>
-          <Link to="/institute/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
+          <h2 className="text-2xl font-bold mb-4 text-[#2C1F0E]" style={{ fontFamily: 'Playfair Display, serif' }}>Contribute to a Body of Knowledge</h2>
+          <p className="text-base opacity-60 text-[#2C1F0E] mb-8">Practitioners, researchers, and subject matter experts can contribute to BOK development through Institute committees, research submissions, and standards review processes.</p>
+          <Link to="/institute/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
             Get Involved <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

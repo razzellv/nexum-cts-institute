@@ -69,11 +69,11 @@ export default function InstituteChaptersPage() {
 
       <section className="py-20" style={{ background: C.darkBrown }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white" style={{ fontFamily: 'Playfair Display, serif' }}>Start or Join a Chapter</h2>
-          <p className="text-base opacity-60 text-white mb-8">
+          <h2 className="text-3xl font-bold mb-4 text-[#2C1F0E]" style={{ fontFamily: 'Playfair Display, serif' }}>Start or Join a Chapter</h2>
+          <p className="text-base opacity-60 text-[#2C1F0E] mb-8">
             Professional Chapters are launching in 2026. Express your interest in founding a chapter in your region or sector, or to be notified when a chapter forms near you.
           </p>
-          <Link to="/institute/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
+          <Link to="/institute/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
             Express Chapter Interest <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

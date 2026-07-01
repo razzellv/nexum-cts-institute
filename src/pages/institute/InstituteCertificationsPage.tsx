@@ -159,9 +159,9 @@ export default function InstituteCertificationsPage() {
 
       <section className="py-16" style={{ background: C.darkBrown }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white" style={{ fontFamily: 'Playfair Display, serif' }}>Start Your Certification Journey</h2>
-          <p className="text-base opacity-60 text-white mb-8">Begin with the Operational Intelligence Foundations™ course — the starting point for all OI Institute credentials.</p>
-          <Link to="/institute/courses" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
+          <h2 className="text-3xl font-bold mb-4 text-[#2C1F0E]" style={{ fontFamily: 'Playfair Display, serif' }}>Start Your Certification Journey</h2>
+          <p className="text-base opacity-60 text-[#2C1F0E] mb-8">Begin with the Operational Intelligence Foundations™ course — the starting point for all OI Institute credentials.</p>
+          <Link to="/institute/courses" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-bold text-[#2C1F0E] transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
             View Courses <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

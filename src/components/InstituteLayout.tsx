@@ -213,7 +213,7 @@ export default function InstituteLayout() {
                   className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg text-[12px] transition-all hover:opacity-80"
                   style={{ background: C.beige, border: `1px solid ${C.border}`, color: C.text }}
                 >
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-[#2C1F0E]" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>
                     {profile?.display_name?.[0] ?? 'U'}
                   </div>
                   <span>{profile?.display_name.split(' ')[0] ?? 'Dashboard'}</span>
@@ -299,7 +299,7 @@ export default function InstituteLayout() {
             {!user && (
               <div className="mt-4 pt-4 border-t flex gap-2" style={{ borderColor: C.border }}>
                 <Link to="/institute/login" className="flex-1 text-center px-4 py-2.5 rounded-lg text-[13px] border font-medium" style={{ borderColor: C.border, color: C.text }}>Sign in</Link>
-                <Link to="/institute/signup" className="flex-1 text-center px-4 py-2.5 rounded-lg text-[13px] font-bold text-white" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>Join Free</Link>
+                <Link to="/institute/signup" className="flex-1 text-center px-4 py-2.5 rounded-lg text-[13px] font-bold text-[#2C1F0E]" style={{ background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})` }}>Join Free</Link>
               </div>
             )}
           </div>
