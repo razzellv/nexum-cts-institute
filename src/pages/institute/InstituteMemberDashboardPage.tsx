@@ -250,7 +250,7 @@ export default function InstituteMemberDashboardPage() {
       {/* Account settings */}
       <div className="border-t border-white/[0.06] pt-6 flex items-center justify-between">
         <p className="text-xs text-white/25">
-          CTS Institute™ member account · {user?.email}
+          Operational Intelligence Institute™ member account · {user?.email}
         </p>
         <button className="flex items-center gap-1.5 text-xs text-white/30 hover:text-white/50 transition-colors">
           <Settings size={12} />

@@ -248,14 +248,14 @@ export const MODULES: CourseModule[] = [
     subtitle: 'How the Methodology Connects to OI™ HQ, FI™ & the Institute',
     estimatedMinutes: 25,
     overview:
-      'CTS™ is not a standalone methodology — it is the governing framework of the entire Nexum Suum ecosystem. This module maps how CTS™ connects to each product: OI™ HQ as the intelligence command center, FI™ as the operational execution layer, and CTS Institute™ as the professional development and certification authority.',
+      'CTS™ is not a standalone methodology — it is the governing framework of the entire Nexum Suum ecosystem. This module maps how CTS™ connects to each product: OI™ HQ as the intelligence command center, FI™ as the operational execution layer, and Operational Intelligence Institute™ as the professional development and certification authority.',
     keyTerms: [
       { term: 'OI™ HQ', definition: 'Operational Intelligence™ Headquarters — the command center where CTS™ assessments are executed, Decision History™ is maintained, and Operational Memory™ is stored.' },
       { term: 'FI™ Platform', definition: 'Facility Intelligence™ Platform — the operational execution layer where daily facility work (work orders, asset tracking, compliance recording) occurs under the governance of OI™ HQ.' },
       { term: 'Controller™', definition: 'The governance layer in OI™ HQ that manages the relationship between the intelligence command center and the FI™ operational platform.' },
     ],
     concepts: [
-      { title: 'CTS™ as the Constitutional Layer', body: 'Every product in the Nexum Suum ecosystem operates under CTS™. The methodology defines what gets assessed, how it gets scored, and what decisions are defensible. OI™ HQ is the platform where CTS™ is executed at enterprise scale. FI™ is where the day-to-day operational data is collected that feeds CTS™ assessments. CTS Institute™ trains and certifies the practitioners who deliver the methodology.' },
+      { title: 'CTS™ as the Constitutional Layer', body: 'Every product in the Nexum Suum ecosystem operates under CTS™. The methodology defines what gets assessed, how it gets scored, and what decisions are defensible. OI™ HQ is the platform where CTS™ is executed at enterprise scale. FI™ is where the day-to-day operational data is collected that feeds CTS™ assessments. Operational Intelligence Institute™ trains and certifies the practitioners who deliver the methodology.' },
       { title: 'The Practitioner Role in the Ecosystem', body: 'A CTS™ Certified Practitioner™ is the professional authority for every Nexum Suum engagement. They conduct OI™ HQ assessments, govern FI™ operational data quality, interpret AI engine outputs, and produce the Decision History™ records that make every client\'s operational decisions defensible. The Institute exists to ensure practitioners meet a consistent, verifiable standard before touching client environments.' },
     ],
     strategies: [

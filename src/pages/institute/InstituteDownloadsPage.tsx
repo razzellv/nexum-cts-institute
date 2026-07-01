@@ -91,7 +91,7 @@ export default function DownloadsPage() {
             Downloads <span className="text-[#c9a96e]">&amp; Resources</span>
           </h1>
           <p className="text-white/60 text-lg leading-relaxed">
-            Free practitioner resources, executive guides, and reference documents from the CTS Institute™. All downloads are free — provide your email to receive your copy and stay informed on new releases.
+            Free practitioner resources, executive guides, and reference documents from the Operational Intelligence Institute™. All downloads are free — provide your email to receive your copy and stay informed on new releases.
           </p>
         </div>
       </section>
@@ -157,7 +157,7 @@ export default function DownloadsPage() {
                 <h3 className="text-xl font-bold text-white mb-2">Download Free</h3>
                 <p className="text-white/50 text-sm mb-1">{selectedDownload}</p>
                 <p className="text-white/30 text-xs mb-6">
-                  Enter your email to receive your download link and stay informed on new CTS Institute™ resources.
+                  Enter your email to receive your download link and stay informed on new Operational Intelligence Institute™ resources.
                 </p>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                   <input

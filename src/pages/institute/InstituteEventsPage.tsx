@@ -75,7 +75,7 @@ export default function EventsPage() {
             Events &amp; <span className="text-[#c9a96e]">Programming</span>
           </h1>
           <p className="text-white/60 text-lg leading-relaxed">
-            CTS Institute™ events bring practitioners together for structured learning, peer dialogue, and standards development. Webinars, roundtables, standards briefings, and an annual conference — all grounded in Operational Intelligence™.
+            Operational Intelligence Institute™ events bring practitioners together for structured learning, peer dialogue, and standards development. Webinars, roundtables, standards briefings, and an annual conference — all grounded in Operational Intelligence™.
           </p>
         </div>
       </section>
@@ -90,7 +90,7 @@ export default function EventsPage() {
             <Badge variant="teal" className="mb-4">Events Calendar Launching Soon</Badge>
             <h2 className="text-2xl font-bold text-white mb-3">Programming Is Being Developed</h2>
             <p className="text-white/50 text-sm leading-relaxed max-w-xl mx-auto mb-6">
-              The CTS Institute™ events calendar is under development. Sign up below to be notified when registration opens for our first webinars, roundtable sessions, and standards briefings.
+              The Operational Intelligence Institute™ events calendar is under development. Sign up below to be notified when registration opens for our first webinars, roundtable sessions, and standards briefings.
             </p>
 
             {!submitted ? (
@@ -122,7 +122,7 @@ export default function EventsPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-3">What to Expect</p>
-            <h2 className="text-2xl font-bold text-white">Types of CTS Institute™ Programming</h2>
+            <h2 className="text-2xl font-bold text-white">Types of Operational Intelligence Institute™ Programming</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {eventTypes.map((et) => (
@@ -178,7 +178,7 @@ export default function EventsPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-3">Propose an Event or Webinar Topic</h2>
           <p className="text-white/50 text-sm mb-6 leading-relaxed">
-            CTS Institute™ accepts proposals for webinar topics, roundtable themes, and practitioner panels from Professional and Practitioner members.
+            Operational Intelligence Institute™ accepts proposals for webinar topics, roundtable themes, and practitioner panels from Professional and Practitioner members.
           </p>
           <Button variant="gold">
             Submit a Proposal <ArrowRight size={14} />

@@ -142,7 +142,7 @@ export default function InstituteMembershipPage() {
       {/* Hero */}
       <section className="py-16 px-4 sm:px-6 max-w-7xl mx-auto text-center">
         <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-3">Membership</p>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">CTS Institute™ Membership</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Operational Intelligence Institute™ Membership</h1>
         <p className="text-white/55 text-sm leading-relaxed max-w-xl mx-auto">
           Choose the level of access that fits your professional journey.
         </p>

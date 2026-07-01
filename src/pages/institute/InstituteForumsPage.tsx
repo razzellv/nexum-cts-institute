@@ -195,7 +195,7 @@ export default function ForumsPage() {
             Unlock All 12 Forum Categories
           </h2>
           <p className="text-white/50 text-sm mb-6 leading-relaxed">
-            Some forums require CTS Institute™ membership. Join free to access open forums, or upgrade to unlock all member-only discussions including Knowledge Preservation, Decision Defensibility™, and Government & GovCon.
+            Some forums require Operational Intelligence Institute™ membership. Join free to access open forums, or upgrade to unlock all member-only discussions including Knowledge Preservation, Decision Defensibility™, and Government & GovCon.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button>Join Free</Button>

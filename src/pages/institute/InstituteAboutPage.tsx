@@ -17,10 +17,10 @@ export default function AboutPage() {
             About
           </p>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            CTS Institute™
+            Operational Intelligence Institute™
           </h1>
           <p className="text-lg text-white/60 mb-6 leading-relaxed">
-            CTS Institute™ is the professional home for Operational Intelligence™ — a Nexum Suum Inc. initiative dedicated to helping professionals, organizations, and facility leaders make better operational decisions.
+            Operational Intelligence Institute™ is the professional home for Operational Intelligence™ — a Nexum Suum Inc. initiative dedicated to helping professionals, organizations, and facility leaders make better operational decisions.
           </p>
           <p className="text-base text-white/50 leading-relaxed mb-10 max-w-2xl mx-auto">
             We develop and publish the CTS™ governing standards, support a community of operational intelligence practitioners, and advance the body of knowledge around defensible, evidence-based decision-making in complex operational environments.
@@ -71,7 +71,7 @@ export default function AboutPage() {
           <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-4">Contact</p>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Get in Touch</h2>
           <p className="text-white/50 text-sm mb-6 leading-relaxed">
-            For inquiries about membership, standards licensing, partnerships, or media, contact the CTS Institute™ team.
+            For inquiries about membership, standards licensing, partnerships, or media, contact the Operational Intelligence Institute™ team.
           </p>
           <a
             href="mailto:institute@nexumsuum.com"

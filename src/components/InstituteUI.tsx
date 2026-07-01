@@ -1,5 +1,5 @@
 /**
- * InstituteUI — lightweight component primitives for CTS Institute™ pages
+ * InstituteUI — lightweight component primitives for Operational Intelligence Institute™ pages
  * Exports Button, Card, and Badge with the design API used across all institute pages
  */
 

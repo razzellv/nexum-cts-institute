@@ -46,7 +46,7 @@ export default function InstituteLoginPage() {
           </div>
           <div>
             <p className="text-sm font-bold text-white leading-none">
-              CTS Institute<span className="text-[#c9a96e]">™</span>
+              Operational Intelligence Institute<span className="text-[#c9a96e]">™</span>
             </p>
             <p className="text-[10px] text-white/30">Member Sign In</p>
           </div>
@@ -128,7 +128,7 @@ export default function InstituteLoginPage() {
         </div>
 
         <p className="text-center text-[11px] text-white/20 mt-6">
-          CTS Institute™ membership is separate from the OI Platform.{' '}
+          Operational Intelligence Institute™ membership is separate from the OI Platform.{' '}
           <Link to="/hub" className="hover:text-white/40 transition-colors">OI Platform login →</Link>
         </p>
       </div>

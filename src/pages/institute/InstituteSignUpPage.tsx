@@ -178,7 +178,7 @@ export default function InstituteSignUpPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-[10px] uppercase tracking-[0.2em] text-[#c9a96e] font-bold mb-3">
-              CTS Institute™
+              Operational Intelligence Institute™
             </p>
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
               Choose your membership
@@ -269,7 +269,7 @@ export default function InstituteSignUpPage() {
           </div>
           <div>
             <p className="text-sm font-bold text-white leading-none">
-              CTS Institute<span className="text-[#c9a96e]">™</span>
+              Operational Intelligence Institute<span className="text-[#c9a96e]">™</span>
             </p>
             <p className="text-[10px] text-white/30">Create your account</p>
           </div>

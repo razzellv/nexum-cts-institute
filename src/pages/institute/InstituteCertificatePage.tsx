@@ -42,7 +42,7 @@ export default function InstituteCertificatePage() {
 
         <div className="text-center mb-8">
           <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-2" style={{ color: certConfig.color }}>
-            CTS Institute™
+            Operational Intelligence Institute™
           </p>
           <h1 className="text-2xl font-bold text-white">Your Certificate</h1>
         </div>
@@ -67,7 +67,7 @@ export default function InstituteCertificatePage() {
           </div>
 
           <p className="text-xs uppercase tracking-[0.25em] text-white/40 mb-2">
-            CTS Institute™ — Nexum Suum Incorporated
+            Operational Intelligence Institute™ — Nexum Suum Incorporated
           </p>
           <p className="text-sm text-white/50 mb-6">
             This is to certify that
@@ -103,7 +103,7 @@ export default function InstituteCertificatePage() {
             <div className="text-center">
               <div className="w-24 h-px bg-white/20 mx-auto mb-2" />
               <p className="text-xs text-white/30">Issued By</p>
-              <p className="text-sm text-white/60 mt-0.5">CTS Institute™</p>
+              <p className="text-sm text-white/60 mt-0.5">Operational Intelligence Institute™</p>
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@ export default function InstituteCertificatePage() {
           <div className="bg-[#c9a96e]/[0.04] border border-[#c9a96e]/15 rounded-xl p-5 text-center">
             <p className="text-[#c9a96e] font-semibold text-sm mb-1">CTS™ Certified Practitioner™</p>
             <p className="text-white/40 text-sm">
-              Present this credential to your organization, clients, or employer as formal evidence of CTS™ methodology proficiency — evaluated and issued by CTS Institute™, Nexum Suum Incorporated.
+              Present this credential to your organization, clients, or employer as formal evidence of CTS™ methodology proficiency — evaluated and issued by Operational Intelligence Institute™, Nexum Suum Incorporated.
             </p>
           </div>
         )}
