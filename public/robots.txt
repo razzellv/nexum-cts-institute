@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://institute.nexumsuum.com/sitemap.xml
