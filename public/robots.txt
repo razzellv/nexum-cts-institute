@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://institute.nexumsuum.com/sitemap.xml
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://institute.nexumsuum-facilityintelligence.com/sitemap.xml
