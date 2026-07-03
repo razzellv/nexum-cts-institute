@@ -8,7 +8,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 export default function PublicationsPage() {
   return (
-    <div className="w-full">
+    <div className="w-full" style={{ backgroundColor: '#120A04', minHeight: '100vh', marginTop: '-1px' }}>
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,169,110,0.07) 0%, transparent 70%)' }} />
         <div className="relative max-w-3xl mx-auto text-center">

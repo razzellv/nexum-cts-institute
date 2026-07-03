@@ -22,7 +22,8 @@ export default function InstituteArticlePage() {
   const accent = CATEGORY_COLORS[article.category] ?? '#c9a96e';
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 py-16">
+    <div className="w-full" style={{ backgroundColor: '#120A04', minHeight: '100vh', marginTop: '-1px' }}>
+    <div className="max-w-3xl mx-auto px-4 py-16">
       {/* Back link */}
       <Link to="/institute/publications" className="inline-flex items-center gap-1.5 text-xs text-white/35 hover:text-white/60 transition-colors mb-10">
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" /></svg>
@@ -190,6 +191,7 @@ export default function InstituteArticlePage() {
           </Link>
         </div>
       </div>
+    </div>
     </div>
   );
 }
