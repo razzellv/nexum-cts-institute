@@ -20,6 +20,7 @@ import InstituteCTSPage from '@/pages/institute/InstituteCTSPage';
 import InstituteStandardsPage from '@/pages/institute/InstituteStandardsPage';
 import InstituteDownloadsPage from '@/pages/institute/InstituteDownloadsPage';
 import InstitutePublicationsPage from '@/pages/institute/InstitutePublicationsPage';
+import InstituteArticlePage from '@/pages/institute/InstituteArticlePage';
 import InstitutePulsePage from '@/pages/institute/InstitutePulsePage';
 import InstituteRoundtablesPage from '@/pages/institute/InstituteRoundtablesPage';
 
@@ -52,6 +53,7 @@ export default function App() {
 
             {/* Knowledge */}
             <Route path="publications" element={<InstitutePublicationsPage />} />
+            <Route path="publications/:slug" element={<InstituteArticlePage />} />
             <Route path="research" element={<InstituteResearchPage />} />
             <Route path="standards" element={<InstituteStandardsPage />} />
             <Route path="bok" element={<InstituteBOKPage />} />
